@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__container container">
-      <div class="header__login"></div>
+      <div class="header__left"></div>
         <div class="header__logo">
           <div class="header__logo-borders">
             <span class="header__logo-border-top-left"></span>
@@ -13,8 +13,19 @@
           </div>
           <img src="/images/logo.svg" alt="Rafinad">
         </div>
-        <div class="header__menu">
-          <img src="/images/icons/menu.svg" alt="">
+        <div class="header__right">
+          <div class="header__menu">
+
+            <div class="header__logo-borders">
+              <span class="header__logo-border-top-left"></span>
+              <span class="header__logo-border-bottom-left"></span>
+            </div>
+            <div class="header__logo-borders header__logo-borders--right">
+              <span class="header__logo-border-top-left"></span>
+              <span class="header__logo-border-bottom-left"></span>
+            </div>
+            <img width="30" src="/images/icons/menu.svg" alt="">
+          </div>
         </div>
     </div>
   </header>
@@ -53,8 +64,8 @@
     border-bottom: var(--borderWidth) solid var(--borderColor);
   }
 
-  &__login,
-  &__menu {
+  &__left,
+  &__right {
     width: 50%;
   }
 
@@ -100,11 +111,6 @@
     }
   }
 
-  &__logo-border-top-left,
-  &__logo-border-bottom-left {
-    overflow: hidden;
-  }
-
   &__logo-border-top-left {
     position: absolute;
     top: 0;
@@ -112,6 +118,7 @@
     display: block;
     height: 50%;
     width: 50%;
+    overflow: hidden;
 
     &:before {
       content: "";
@@ -133,6 +140,7 @@
     display: block;
     height: calc(50% + var(--borderWidth)*2);
     width: 50%;
+    overflow: hidden;
 
     &:before {
       content: "";
@@ -147,9 +155,26 @@
     }
   }
 
-  &__menu {
+  &__right {
     display: flex;
     justify-content: flex-end;
+  }
+
+  &__menu {
+    padding: 16px 40px 0;
+    background: var(--headerBg);
+    position: relative;
+
+    &:after {
+      content: '';
+      bottom: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 88px);
+      border-bottom: var(--borderWidth) solid var(--borderColor);
+      display: block;
+    }
   }
 }
 </style>
