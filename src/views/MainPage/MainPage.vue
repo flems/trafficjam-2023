@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import Banner from "./components/MpBanner.vue";
+import Banner from "@/views/MainBanner/MainBanner.vue";
 import Card from "@/components/Card"
 import Number from '@/components/Number'
 
@@ -47,10 +47,12 @@ import Number from '@/components/Number'
 <style scoped>
 .main-page {
   /* padding: 50px; */
-  background-image: url(/images/main-page/stars.png);
+  background-image: url(/images/main-page/stars.png) 0 0;
   height: 100%;
   background-size: auto auto;
   background-position: 50% 0px;
   background-repeat: repeat no-repeat;
+  position: relative;
+  overflow: hidden;
 }
 </style>

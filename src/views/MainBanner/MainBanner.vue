@@ -3,6 +3,8 @@
     <div class="banner-planet">
       <img src="/images/main-page/earth.png" alt="">
     </div>
+    <space-objects class="banner__space-objects"/>
+
     <div class="container">
       <div class="banner-announce banner__announce">
         <p class="banner-announce__date">
@@ -10,8 +12,6 @@
           <span>Июнь-октябрь</span>
         </p>
         <banner-title />
-        
-
         <p class="banner-announce__text">Лей на офферы Rafinad — забирай призы!</p>
       </div>
     </div>
@@ -19,14 +19,25 @@
 </template>
 
 <script setup>
-import BannerTitle from './BannerTitle.vue';
+import BannerTitle from './components/Title.vue';
+import SpaceObjects from './components/SpaceObjects.vue';
 </script>
 
 <style lang="scss">
-
-
 .banner {
   padding-top: 170px;
+  position: relative;
+  padding-bottom: 80px;
+
+  &__space-objects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    // background: rgba(#00ff00, 0.2);
+    z-index: 2;
+  }
 
   &__announce {
     max-width: 410px;

@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Unbounded';
-    src: url('/images/fonts/unbounded/Unbounded-Black.woff2') format('woff2'),
-        url('/images/fonts/unbounded/Unbounded-Black.woff') format('woff');
+    src: url('/fonts/unbounded/Unbounded-Black.woff2') format('woff2'),
+        url('/fonts/unbounded/Unbounded-Black.woff') format('woff');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -9,26 +9,26 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('/images/fonts/unbounded/Unbounded-Bold.woff2') format('woff2'),
-        url('/images/fonts/unbounded/Unbounded-Bold.woff') format('woff');
-    font-weight: bold;
+    src: url('/fonts/unbounded/Unbounded-Bold.woff2') format('woff2'),
+        url('/fonts/unbounded/Unbounded-Bold.woff') format('woff');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('/images/fonts/unbounded/Unbounded-ExtraBold.woff2') format('woff2'),
-        url('/images/fonts/unbounded/Unbounded-ExtraBold.woff') format('woff');
-    font-weight: bold;
+    src: url('/fonts/unbounded/Unbounded-ExtraBold.woff2') format('woff2'),
+        url('/fonts/unbounded/Unbounded-ExtraBold.woff') format('woff');
+    font-weight: 800;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('/images/fonts/unbounded/Unbounded-Medium.woff2') format('woff2'),
-        url('/images/fonts/unbounded/Unbounded-Medium.woff') format('woff');
+    src: url('/fonts/unbounded/Unbounded-Medium.woff2') format('woff2'),
+        url('/fonts/unbounded/Unbounded-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -36,8 +36,8 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('/images/fonts/unbounded/Unbounded-SemiBold.woff2') format('woff2'),
-        url('/images/fonts/unbounded/Unbounded-SemiBold.woff') format('woff');
+    src: url('/fonts/unbounded/Unbounded-SemiBold.woff2') format('woff2'),
+        url('/fonts/unbounded/Unbounded-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -45,8 +45,8 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('/images/fonts/unbounded/Unbounded-ExtraLight.woff2') format('woff2'),
-        url('/images/fonts/unbounded/Unbounded-ExtraLight.woff') format('woff');
+    src: url('/fonts/unbounded/Unbounded-ExtraLight.woff2') format('woff2'),
+        url('/fonts/unbounded/Unbounded-ExtraLight.woff') format('woff');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -54,8 +54,8 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('/images/fonts/unbounded/Unbounded-Light.woff2') format('woff2'),
-        url('/images/fonts/unbounded/Unbounded-Light.woff') format('woff');
+    src: url('/fonts/unbounded/Unbounded-Light.woff2') format('woff2'),
+        url('/fonts/unbounded/Unbounded-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -63,9 +63,9 @@
 
 @font-face {
     font-family: 'Unbounded';
-    src: url('/images/fonts/unbounded/Unbounded-Regular.woff2') format('woff2'),
-        url('/images/fonts/unbounded/Unbounded-Regular.woff') format('woff');
-    font-weight: normal;
+    src: url('/fonts/unbounded/Unbounded-Regular.woff2') format('woff2'),
+        url('/fonts/unbounded/Unbounded-Regular.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }

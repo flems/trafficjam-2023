@@ -12,19 +12,28 @@
 <script setup>
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.banner-title {
+  position: relative;
+}
 .svg {
   position: absolute;
   width: 0;
   height: 0;
 }
 .clipped {
-  width: 100%;
-  height: 350px;
-  // background: turquoise url(https://source.unsplash.com/600x600?summer);
-  background: red;
+  width: 0;
+  height: 0;
+  padding-top: 71%;
+  padding-right: 100%;
+  // background: red;
+  backdrop-filter: blur(11px);
   background-size: cover;
   -webkit-clip-path: url(#my-clip-path);
   clip-path: url(#my-clip-path);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 </style>
