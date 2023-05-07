@@ -1,15 +1,97 @@
 <template>
-  <footer class="footer">
-    footer
-  </footer>
+  <div class="container">
+    <footer class="footer">
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <img class="footer__logo" src="/images/logo.svg" alt="">
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="footer__links-container">
+            <div class="footer__menu">
+              <footer-nav :data="footerMenu"/>
+            </div>
+            <div class="footer__social">
+              <footer-nav :data="socialList"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script setup>
+import FooterNav from '@/components/FooterNav'
 
+const footerMenu = [
+  {
+    link: '#',
+    name: 'Публичная оферта'
+  },
+  {
+    link: '#',
+    name: 'Лицензия сайта'
+  },
+  {
+    link: '#',
+    name: 'Политика конфиденциальности'
+  },
+  {
+    link: '#',
+    name: 'Вопрос-ответ'
+  }
+]
+
+const socialList = [
+  {
+    link: '#',
+    name: 'Telegram',
+    icon: '/images/icons/telegram.svg'
+  },
+  {
+    link: '#',
+    name: 'Вконтакте',
+    icon: '/images/icons/vk.svg'
+  },
+  {
+    link: '#',
+    name: 'TenChat',
+    icon: '/images/icons/tenchat.svg'
+  },
+  {
+    link: '#',
+    name: 'Та самая соцсеть',
+    icon: '/images/icons/inst.svg'
+  }
+]
 </script>
 
 <style lang="scss">
 .footer {
+    border: 2px solid #6B6B6B;
+    border-bottom: none;
+    padding: 60px 120px;
+    border-radius: 60px 60px 0 0;
 
+    &__logo {
+      img {
+        width: 124px;
+        display: block;
+      }
+    }
+
+    &__links-container {
+      display: flex;
+      gap: 160px;
+      
+      @media (max-width: 1440px) {
+        gap: 90px;
+      }
+
+      @media (max-width: 768px) {
+        gap: 20px;
+        flex-direction: column;
+      }
+    }
 }
 </style>

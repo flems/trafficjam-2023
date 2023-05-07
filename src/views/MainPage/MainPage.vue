@@ -1,6 +1,9 @@
 <template>
   <div class="main-page">
-    main page
+    <div class="container">
+      main page
+
+    </div>
 
     <!-- <banner />
     
