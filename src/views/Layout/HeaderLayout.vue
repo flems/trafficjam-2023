@@ -7,6 +7,10 @@
             <span class="header__logo-border-top-left"></span>
             <span class="header__logo-border-bottom-left"></span>
           </div>
+          <div class="header__logo-borders header__logo-borders--right">
+            <span class="header__logo-border-top-left"></span>
+            <span class="header__logo-border-bottom-left"></span>
+          </div>
           <img src="/images/logo.svg" alt="Rafinad">
         </div>
         <div class="header__menu">
@@ -64,6 +68,8 @@
     img {
       position: relative;
       z-index: 2;
+      height: 28px;
+      width: auto;
     }
 
     &:after {
@@ -86,8 +92,12 @@
     z-index: 10;
     top: calc(var(--headerHeight) - var(--borderWidth));
     left: 0;
-    // background: pink;
 
+    &--right {
+      right: 0;
+      left: auto;
+      transform: scale(-1, 1);
+    }
   }
 
   &__logo-border-top-left,
@@ -102,31 +112,27 @@
     display: block;
     height: 50%;
     width: 50%;
-    // background: lightblue;
 
     &:before {
       content: "";
-    width: 81px;
-    height: 90px;
-    border-radius: 50%;
-    border: var(--borderWidth) solid var(--borderColor);
-    display: block;
-    position: absolute;
-    top: 0px;
-    right: -18px;
+      width: 81px;
+      height: 90px;
+      border-radius: 50%;
+      border: var(--borderWidth) solid var(--borderColor);
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: -18px;
     }
   }
   
   &__logo-border-bottom-left {
     position: absolute;
     bottom: 0;
-    // background: blue;
     right: 0;
     display: block;
     height: calc(50% + var(--borderWidth)*2);
     width: 50%;
-    // background: lightgreen;
-
 
     &:before {
       content: "";
