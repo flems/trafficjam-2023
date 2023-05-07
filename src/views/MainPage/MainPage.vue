@@ -1,11 +1,11 @@
 <template>
   <div class="main-page">
+    <banner />
     <div class="container">
-      main page
 
     </div>
 
-    <!-- <banner />
+    <!-- 
     
     <number />
 
@@ -46,6 +46,11 @@ import Number from '@/components/Number'
 
 <style scoped>
 .main-page {
-  padding: 50px;
+  /* padding: 50px; */
+  background-image: url(/images/main-page/stars.png);
+  height: 100%;
+  background-size: auto auto;
+  background-position: 50% 0px;
+  background-repeat: repeat no-repeat;
 }
 </style>
