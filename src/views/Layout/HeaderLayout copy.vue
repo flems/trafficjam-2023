@@ -3,10 +3,7 @@
     <div class="header__container container">
       <div class="header__login"></div>
         <div class="header__logo">
-          <div class="header__logo-borders">
-            <span class="header__logo-border-top-left"></span>
-            <span class="header__logo-border-bottom-left"></span>
-          </div>
+          <span class="header__logo-border-left"></span>
           <img src="/images/logo.svg" alt="Rafinad">
         </div>
         <div class="header__menu">
@@ -24,7 +21,7 @@
 .header {
   --borderColor: #6B6B6B;
   --borderWidth: 2px;
-  --headerHeight: 38px;
+  --headerHeight: 32px;
   --headerBg: #000210;
   --borderRadius: 20px
 }
@@ -56,10 +53,13 @@
 
   &__logo {
     flex-shrink: 0;
-    padding: 16px 80px 16px;
+    padding: 16px 40px;
     background: var(--headerBg);
+    // border-bottom-left-radius: 30px;
+    // border-bottom-right-radius: 30px;
+    // border: var(--borderWidth) solid var(--borderColor);
+    // border-top: none;
     position: relative;
-    height: 56px;
 
     img {
       position: relative;
@@ -68,76 +68,49 @@
 
     &:after {
       content: '';
-      bottom: 0;
+      bottom: -5px;
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 88px);
+      left: 40px;
+      width: calc(100% - 40px);
       border-bottom: var(--borderWidth) solid var(--borderColor);
       display: block;
     }
 
   }
 
-  &__logo-borders {
+  &__logo-border-left {
     position: absolute;
-    width: 44px;
-    height: 22px;
-    z-index: 10;
     top: calc(var(--headerHeight) - var(--borderWidth));
-    left: 0;
-    // background: pink;
-
-  }
-
-  &__logo-border-top-left,
-  &__logo-border-bottom-left {
+    left: 8px;
+    width: 122px;
+    height: 40px;
+    transform: translateX(-70%);
     overflow: hidden;
-  }
-
-  &__logo-border-top-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    height: 50%;
-    width: 50%;
-    // background: lightblue;
 
     &:before {
-      content: "";
-    width: 81px;
-    height: 90px;
-    border-radius: 50%;
-    border: var(--borderWidth) solid var(--borderColor);
-    display: block;
-    position: absolute;
-    top: 0px;
-    right: -18px;
-    }
-  }
-  
-  &__logo-border-bottom-left {
-    position: absolute;
-    bottom: 0;
-    // background: blue;
-    right: 0;
-    display: block;
-    height: calc(50% + var(--borderWidth)*2);
-    width: 50%;
-    // background: lightgreen;
-
-
-    &:before {
-      content: "";
-      width: 80px;
-      height: 90px;
-      border-radius: 50%;
-      border: var(--borderWidth) solid var(--borderColor);
-      display: block;
+      content: '';
       position: absolute;
-      bottom: 2px;
-      left: -15px;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: block;
+      background: var(--headerBg);
+    }
+
+    &:after {
+      content: '';
+      --mask: radial-gradient(109.17px at 50% calc(100% + 88px),#0000 calc(99% - 2px),#000 calc(101% - 2px) 99%,#0000 101%) calc(50% - 80px) calc(50% - 31px + 0.5px)/240px 62px repeat-x, radial-gradient(109.17px at 50% -90px,#0000 calc(99% - 2px),#000 calc(101% - 2px) 99%,#0000 101%) -3% calc(50% + 31px)/240px 62px no-repeat;
+      -webkit-mask: var(--mask);
+      mask: var(--mask);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 160px;
+      height: 40px;
+      background: var(--borderColor);
+
+
     }
   }
 
