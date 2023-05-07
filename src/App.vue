@@ -1,6 +1,8 @@
 <template>
   <header-layout />
-  <main-page />
+  <main class="main">
+    <main-page />
+  </main>
   <footer-layout />
 </template>
 

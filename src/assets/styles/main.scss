@@ -7,3 +7,25 @@ body {
     font-family: sans-serif;
     line-height: 1.25;
 }
+
+html, body {
+    height: 100%;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header, .footer {
+    flex-shrink: 0;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.container {
+    padding: 0 100px;
+}
