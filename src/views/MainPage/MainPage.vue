@@ -48,7 +48,7 @@ import Number from '@/components/Number'
 .main-page {
   /* padding: 50px; */
   background-image: url(/images/main-page/stars.png) 0 0;
-  height: 100%;
+  height: 3600px;
   background-size: auto auto;
   background-position: 50% 0px;
   background-repeat: repeat no-repeat;
