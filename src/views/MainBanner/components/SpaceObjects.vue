@@ -47,13 +47,10 @@ const init = () => {
   container.value.addEventListener('mousemove', e => {
     parallax(e, parallaxItems)
   })
-  // console.log(parallaxItems);
 }
 
 onMounted(() => {
   init()
-  // console.log(parallaxItem[0]);
-  // document.addEventListener("mousemove", parallax)
 })
 </script>
 
@@ -207,7 +204,6 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% 50%;
-    // transform: translate(15px, 15px);
   }
 
   &__timer-line {
@@ -235,5 +231,4 @@ onMounted(() => {
     transform: translateX(-50%);
   }
 }
-
 </style>

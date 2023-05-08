@@ -1,10 +1,9 @@
 @import '@/assets/styles/reset.scss';
-@import '@/assets/styles/vars.scss';
 @import '@/assets/styles/grid.scss';
 @import '@/assets/styles/fonts.scss';
 
 body {
-    background-color: $black;
+    background-color: #000210;
     color: #fff;
     font-family: 'Graphik LCG', sans-serif;
     line-height: 1.25;
@@ -36,6 +35,7 @@ html, body {
 
     
 }
+
 .row {
     margin-left: -20px;
     margin-right: -20px;
@@ -46,4 +46,15 @@ html, body {
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 20px;
+}
+
+h2 {
+    color: #FDFDFD;
+    text-transform: uppercase;
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.4;
+    margin-bottom: 40px;
 }
