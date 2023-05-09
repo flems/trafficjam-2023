@@ -64,6 +64,7 @@ defineProps({
     margin-right: 8px;
     flex-shrink: 0;
     display: block;
+    margin-top: -0.1em;
   }
 }
 </style>

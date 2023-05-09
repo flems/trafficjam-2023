@@ -93,6 +93,7 @@ $transition: 0.2s ease-in;
     --bgCard: #000210;
     --titleTextColor: #fcfdfd;
     --contenTextColor: #fcfdfd;
+    --contentHighlightTextColor: #6285FE;
     --borderColor: #6B6B6B;
     --tagColorText: #fdfdfd;
   }
@@ -135,7 +136,7 @@ $transition: 0.2s ease-in;
 
     b {
       color: var(--contentHighlightTextColor);
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 
