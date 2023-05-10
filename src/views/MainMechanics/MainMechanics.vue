@@ -1,7 +1,7 @@
 <template>
   <div class="mechanics">
     <div class="container">
-      <h2>механика конкурса</h2>
+      <h2>Механика конкурса</h2>
       <div class="row">
         <div class="col-12 col-lg-6 col-xl-4">
           <ui-card interactive full-height class="mechanics__card" @mouseleave="onMouseleave" @mouseenter="onMouseenter('sugar')">

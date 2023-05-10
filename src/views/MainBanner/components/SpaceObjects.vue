@@ -78,6 +78,7 @@ onMounted(() => {
     display: block;
     position: relative;
     z-index: 2;
+    animation: spin 660s linear infinite
   }
 
   &:before {
@@ -98,7 +99,7 @@ onMounted(() => {
   position: absolute;
 
   &__container {
-    max-width: 1920px;
+    // max-width: 1920px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -129,6 +130,7 @@ onMounted(() => {
     top: 156px;
     width: 20%;
     z-index: 6;
+    animation: ship 1s ease-out 0.1s;
 
     @media (max-width: 1440px) {
       right: 5%;
@@ -229,6 +231,19 @@ onMounted(() => {
     position: absolute;
     left: 92%;
     transform: translateX(-50%);
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn)
+  }
+}
+
+@keyframes ship {
+  from {
+    right: 33%;
   }
 }
 </style>

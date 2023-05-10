@@ -92,6 +92,7 @@ const socialList = [
     padding: 60px 120px;
     border-radius: 60px 60px 0 0;
     border: 2px solid #6B6B6B;
+    border-bottom: none;
     backdrop-filter: blur(11px);
   }
 

@@ -1,45 +1,47 @@
 <template>
   <div
-    class="card"
-    @click="onClick"
+    class="card-default"
     :class="{
-        [`card--theme-${theme}`]: theme,
-        'card--full-height': fullHeight,
-        'card--uninteractive': !interactive
-    }"
-  >
+        [`card-default--theme-${theme}`]: theme,
+        'card-default--full-height': fullHeight,
+        'card-default--interactive': interactive,
+        'card-default--without-tag': !tagName,
+        'card-default--active': active,
 
-    <div class="card__top">
-      <span class="card__label"></span>
-      <span class="card__tag">
-        <ui-icon :name="tagIcon" class="card__tag-icon" v-if="tagIcon" />
+    }"
+    :style="`--tagWidth: ${tagWidth};`"
+  >
+    <slot />
+    <div class="card-default__top">
+      <span class="card-default__label"></span>
+      <span class="card-default__tag">
+        <ui-icon :name="tagIcon" class="card-default__tag-icon" v-if="tagIcon" />
         <span v-html="tagName"></span>
       </span>
     </div>
-    <div class="card__logo">
+    <div class="card-default__logo" v-if="logo">
       <img :src="logo" alt="">
     </div>
-    <div class="card__container">
-      <div class="card__content">
-        <p class="card__title" v-html="title"></p>
+    <div class="card-default__container">
+      <div class="card-default__content">
+        <p class="card-default__title" v-html="title" v-if="title"></p>
         <slot name="content" />
       </div>
     </div>
-    <div class="card__utils">
+    <div class="card-default__utils">
       <!-- тени и заплатки -->
-      <span class="card__top-shadow"></span>
-      <span class="card__label-shadow-top"></span>
-      <span class="card__label-shadow-left"></span>
-      <span class="card__label-shadow-right"></span>
-      <span class="card__label-shadow-bottom"></span>
-      <span class="card__container-shadow"></span>
-      <span class="card__patch"><span></span></span>
+      <span class="card-default__top-shadow"></span>
+      <span class="card-default__label-shadow-top"></span>
+      <span class="card-default__label-shadow-left"></span>
+      <span class="card-default__label-shadow-right"></span>
+      <span class="card-default__label-shadow-bottom"></span>
+      <span class="card-default__container-shadow"></span>
+      <span class="card-default__patch"><span></span></span>
     </div>
   </div>
 </template>
 
 <script setup>
-import { gsap } from 'gsap'
 import UiIcon from '@/components/UiIcon'
 
 defineProps({
@@ -64,36 +66,29 @@ defineProps({
     type: Boolean,
     default: false
   },
+  active: {
+    type: Boolean,
+    default: false
+  },
   interactive: {
     type: Boolean,
     default: true
+  },
+  tagWidth: {
+    type: String,
+    default: '178px'
   }
 })
-
-const onClick = e => {
-  const card = e.currentTarget
-  const logo = card.querySelector('.card__logo')
-  const content = card.querySelector('.card__content')
-  const logoAnumDur = 0.5
-  const tl = gsap.timeline()
-
-  tl.to(logo, {left: 32, duration: logoAnumDur})
-  tl.to(logo, {top: 20, duration: logoAnumDur}, 0)
-  tl.to(logo, {xPercent: 0, duration: logoAnumDur}, 0)
-  tl.to(logo, {yPercent: 0, duration: logoAnumDur}, 0)
-  tl.to(logo, {width: 85, duration: logoAnumDur}, 0)
-  tl.to(content, {opacity: 1, duration: 0.1}, 0.2)
-}
 </script>
 
 <style lang="scss">
-$tagWidth: 178px;
+// $tagWidth: 178px;
 $tagHeight: 38px;
 $tagSpaceX: 8px;
 $tagSpaceY: 10px;
 $labelHeight: $tagHeight + $tagSpaceY;
 
-$borderRadius: 16px; // если меняется, нужно править положение для card__patch
+$borderRadius: 16px; // если меняется, нужно править положение для card-default__patch
 $borderWidth: 2px; // есть ошибки в расчетах у одного из бордеров, видно при изменении значения бордера
 $boxShadowLight: 0px 0px 7px #FFFFFF, 0px 0px 20px #00E0FF, 0px 0px 20px #00E0FF;
 $boxShadowDark: 0px 0px 7px #FFFFFF, 0px 0px 20px #0085FF, 0px 0px 20px #0085FF;
@@ -101,16 +96,17 @@ $boxShadowLightInset: inset 0px 0px 7px #FFFFFF, inset 0px 0px 20px #00E0FF, ins
 $boxShadowHeight: 20px; 
 $transition: 0.2s ease-in;
 
-.card {
-  --bgCard: #6285FE;
+.card-default {
+  --bgcard-default: #6285FE;
   --contenTextColor: #000210;
   --contentHighlightTextColor: #fcfdfd;
   --titleTextColor: #000210;
   --borderColor: #cdd8ff;
   --tagColorText: #000210;
+  --tagWidth: 178px;
   
   &--theme-black {
-    --bgCard: #000210;
+    --bgcard-default: #000210;
     --titleTextColor: #fcfdfd;
     --contenTextColor: #fcfdfd;
     --contentHighlightTextColor: #6285FE;
@@ -119,19 +115,18 @@ $transition: 0.2s ease-in;
   }
 }
 
-.card {
+.card-default {
+  $parent: &;
+
   width: 100%;
   max-width: 100%;
-  min-width: 280px;
-  min-height: 285px;
+  // min-width: 280px;
+  // min-height: 285px;
   display: flex;
   flex-direction: column;
   position: relative;
   cursor: pointer;
-
-  &--uninteractive {
-    pointer-events: none;
-  }
+  pointer-events: none;
 
   &__tag-icon {
     width: 16px;
@@ -160,6 +155,7 @@ $transition: 0.2s ease-in;
     line-height: 1.25;
     font-family: 'Graphik LCG', sans-serif;
     color: var(--contenTextColor);
+    transition: opacity $transition;
 
     b {
       color: var(--contentHighlightTextColor);
@@ -184,16 +180,11 @@ $transition: 0.2s ease-in;
     }
   }
 
-  &__content {
-    opacity: 0;
-    transition: opacity $transition;
-  }
-
   &__tag {
     height: $tagHeight;
-    width: $tagWidth;
+    width: var(--tagWidth);
     border-radius: $borderRadius;
-    background: var(--bgCard);
+    background: var(--bgcard-default);
     right: 0;
     top: 0;
     position: absolute;
@@ -219,10 +210,10 @@ $transition: 0.2s ease-in;
     &:after {
       content: '';
       position: absolute;
-      width: calc(100% - ((100% - (#{$tagWidth} + #{$tagSpaceX}) + #{$borderRadius} + #{$borderWidth})));
+      width: calc(100% - ((100% - (var(--tagWidth) + #{$tagSpaceX}) + #{$borderRadius} + #{$borderWidth})));
       height: calc(#{$labelHeight}/2 - #{$borderWidth});
       bottom: calc(#{$boxShadowHeight});
-      left: calc(100% - (#{$tagWidth} + #{$tagSpaceX} + #{$borderWidth}));
+      left: calc(100% - (var(--tagWidth) + #{$tagSpaceX} + #{$borderWidth}));
       border: $borderWidth solid var(--borderColor);
       transition: border-color $transition;
       border-bottom-left-radius: $borderRadius;
@@ -235,7 +226,7 @@ $transition: 0.2s ease-in;
     &:before {
       content: '';
       position: absolute;
-      width: calc(100% - ((100% - (#{$tagWidth} + #{$tagSpaceX}) + #{$borderRadius} + #{$borderWidth})));
+      width: calc(100% - ((100% - (var(--tagWidth) + #{$tagSpaceX}) + #{$borderRadius} + #{$borderWidth})));
       height: calc(#{$labelHeight}/2 - #{$borderWidth});
       bottom: 0;
       right: 0;
@@ -251,14 +242,14 @@ $transition: 0.2s ease-in;
 
   &__label {
     display: block;
-    width: calc(100% - (#{$tagWidth} + #{$tagSpaceX}));
+    width: calc(100% - (var(--tagWidth) + #{$tagSpaceX}));
     height: $labelHeight;
     position: relative;
     border-left: $borderWidth solid var(--borderColor);
     transition: box-shadow $transition, border-color $transition;
     border-top-left-radius: $borderRadius;
     border-top-right-radius: $borderRadius;
-    background: var(--bgCard);
+    background: var(--bgcard-default);
     padding: 18px 32px 0;
     overflow: hidden;
 
@@ -282,7 +273,7 @@ $transition: 0.2s ease-in;
   &__container {
     flex-grow: 1;
     border: $borderWidth solid var(--borderColor);
-    background: var(--bgCard);
+    background: var(--bgcard-default);
     border-top: none;
     border-bottom-left-radius: $borderRadius;
     border-bottom-right-radius: $borderRadius;
@@ -301,10 +292,30 @@ $transition: 0.2s ease-in;
   &--full-height {
     height: 100%;
   }
+
+  &--interactive {
+    pointer-events: all;
+
+    #{$parent}__content {
+      opacity: 0;
+    }
+  }
+
+  &--without-tag {
+    #{$parent}__top,
+    #{$parent}__utils {
+      display: none;
+    }
+
+    #{$parent}__container {
+      border-radius: $borderRadius;
+      border: $borderWidth solid var(--borderColor);
+    }
+  }
 }
 
 // inset shadow
-.card {
+.card-default {
   &__container-shadow {
     position: absolute;
     top: $labelHeight;
@@ -336,7 +347,7 @@ $transition: 0.2s ease-in;
 
   &__label-shadow-top {
     display: block;
-    width: calc(100% - (#{$tagWidth} + #{$tagSpaceX} + #{$borderWidth}*2));
+    width: calc(100% - (var(--tagWidth) + #{$tagSpaceX} + #{$borderWidth}*2));
     height: calc(#{$labelHeight}/2);
     position: absolute;
     top: calc(#{$borderWidth}/2);
@@ -362,7 +373,7 @@ $transition: 0.2s ease-in;
 
   &__label-shadow-left {
     position: absolute;
-    width: calc(100% - (#{$tagWidth} + #{$tagSpaceX} + #{$borderWidth}*2));
+    width: calc(100% - (var(--tagWidth) + #{$tagSpaceX} + #{$borderWidth}*2));
     height: calc(#{$labelHeight}/2 - #{$borderWidth}/2);
     display: block;
     top: calc(#{$borderWidth}/2 + #{$labelHeight}/2);
@@ -386,11 +397,11 @@ $transition: 0.2s ease-in;
 
   &__label-shadow-right {
     position: absolute;
-    width: calc((100% - (100% - #{$tagWidth}) + #{$tagSpaceX} + #{$borderWidth}) - #{$tagWidth}/2 + #{$boxShadowHeight});
+    width: calc((100% - (100% - var(--tagWidth)) + #{$tagSpaceX} + #{$borderWidth}) - var(--tagWidth)/2 + #{$boxShadowHeight});
     height: calc(#{$labelHeight}/2 + #{$boxShadowHeight});
     display: block;
     bottom: calc(100% - (#{$borderWidth}/2 + #{$labelHeight} + #{$boxShadowHeight}));
-    right: $tagWidth + $tagSpaceX + $borderWidth*2 + $boxShadowHeight;
+    right: calc(var(--tagWidth) + #{$tagSpaceX} + #{$borderWidth}*2 + #{$boxShadowHeight});
     transform: translateX(100%);
     border-bottom-left-radius: $borderRadius;
     overflow: hidden;
@@ -414,7 +425,7 @@ $transition: 0.2s ease-in;
 
   &__label-shadow-bottom {
     position: absolute;
-    width: calc(#{$tagWidth}/2);
+    width: calc(var(--tagWidth)/2);
     height: calc(100% - #{$labelHeight} - #{$borderWidth}/2);
     display: block;
     top: calc(#{$labelHeight} - #{$borderWidth});
@@ -441,7 +452,7 @@ $transition: 0.2s ease-in;
 }
 
 // outer shadow
-.card {
+.card-default {
   &__label {
 
     &:after {
@@ -459,7 +470,7 @@ $transition: 0.2s ease-in;
 }
 
 // костыли
-.card {
+.card-default {
   &__patch {
     &:before {
       content: "";
@@ -467,10 +478,10 @@ $transition: 0.2s ease-in;
       height: 20px;
       display: block;
       position: absolute;
-      left: calc(100% - 177px - 8px);
+      left: calc(100% - var(--tagWidth) - 6px);
       transform: translate(-90%, -42%);
       top: 46px;
-      background: var(--bgCard);
+      background: var(--bgcard-default);
       pointer-events: none;
       z-index: 5;
       border-radius: 10px;
@@ -478,13 +489,13 @@ $transition: 0.2s ease-in;
 
     &:after {
       content: '';
-      width: calc(100% - #{$tagWidth} - #{$tagSpaceX} - #{$borderWidth}*2);
+      width: calc(100% - var(--tagWidth) - #{$tagSpaceX} - #{$borderWidth}*2);
       height: 20px;
       position: absolute;
       top: #{$labelHeight};
       left: $borderWidth;
       z-index: 6;
-      background: var(--bgCard);
+      background: var(--bgcard-default);
     }
 
     span {
@@ -493,10 +504,10 @@ $transition: 0.2s ease-in;
       height: 15px;
       display: block;
       position: absolute;
-      left: calc(100% - 177px - 8px);
+      left: calc(100% - var(--tagWidth) - 6px);
       transform: translate(-31%, 8%) rotate(31deg);
       top: 46px;
-      background: var(--bgCard);
+      background: var(--bgcard-default);
       pointer-events: none;
       z-index: 5;
       filter: blur(1px);
@@ -505,9 +516,10 @@ $transition: 0.2s ease-in;
 }
 
 // hover
-.card {
+.card-default {
   $parent: &;
 
+  &--active,
   &:hover {
     --borderColor: #fcfdfd;
 
