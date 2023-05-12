@@ -12,23 +12,23 @@
     <section class="main-page__section">
       <prizes />
     </section>
-
-    
+    <section class="main-page__section">
+      <main-rating />
+    </section>
   </div>
 </template>
 
 <script setup>
-import Banner from "@/views/MainBanner/MainBanner.vue"
-import Mechanics from "@/views/MainMechanics/MainMechanics.vue"
-import Sponsors from "./components/Sponsors.vue"
-import Prizes from "./components/Prizes.vue"
+import Banner from '@/views/MainBanner/MainBanner.vue'
+import Mechanics from '@/views/MainMechanics/MainMechanics.vue'
+import Sponsors from './components/Sponsors.vue'
+import Prizes from './components/Prizes.vue'
+import MainRating from '@/views/MainRating/MainRating.vue'
 </script>
 
 <style lang="scss" scoped>
 .main-page {
-  /* padding: 50px; */
   background-image: url('/images/main-page/stars.png');
-  // height: 3600px;
   background-size: auto auto;
   background-position: 50% 0px;
   background-repeat: repeat no-repeat;

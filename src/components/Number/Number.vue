@@ -2,7 +2,8 @@
   <div class="number"
     :class="[
       { 'number--active': active },
-      `number--theme-${theme}`
+      `number--theme-${theme}`,
+      `number--size-${size}`
     ]"
   >
     <span class="number__text">
@@ -21,6 +22,11 @@ defineProps({
     type: String,
     default: 'black',
     validator: prop => ['black', 'blue'].includes(prop)
+  },
+  size: {
+    type: String,
+    default: 'l',
+    validator: prop => ['l', 'm'].includes(prop)
   }
 })
 </script>
@@ -44,16 +50,6 @@ defineProps({
                     inset 0px 0px 7px #FFFFFF,
                     inset 0px 0px 20px #00E0FF,
                     inset 0px 0px 20px #00E0FF;
-      }
-    }
-  }
-
-  &--theme-blue {
-    &.number--active {
-      #{$parent}__text {
-        &:after {
-          background: #6285FE;
-        }
       }
     }
   }
@@ -88,6 +84,31 @@ defineProps({
       border: 2px solid rgba(255, 255, 255, 0.1);
       z-index: -1;
       transition: all 0.2s linear;
+    }
+  }
+
+  &--size {
+    &-m {
+      #{$parent}__text {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        line-height: 30px;
+        
+        &:after {
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+  &--theme-blue {
+    &.number--active {
+      #{$parent}__text {
+        &:after {
+          background: #6285FE;
+        }
+      }
     }
   }
 }
