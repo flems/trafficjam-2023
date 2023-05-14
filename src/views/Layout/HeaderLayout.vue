@@ -24,7 +24,7 @@
               <span class="header__logo-border-top-left"></span>
               <span class="header__logo-border-bottom-left"></span>
             </div>
-            <img width="30" src="/images/icons/menu.svg" alt="">
+            <img width="28" height="28" src="/images/icons/menu.svg" alt="">
           </div>
         </div>
     </div>
@@ -49,10 +49,15 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 
   &__container {
     display: flex;
+
+    @media (max-width: 999px) {
+      justify-content: space-between;
+      padding: 0;
+    }
   }
 
   &:before {
@@ -73,6 +78,12 @@
     width: 50%;
   }
 
+  &__left {
+    @media (max-width: 990px) {
+      display: none;
+    }
+  }
+
   &__logo {
     flex-shrink: 0;
     padding: 16px 80px 16px;
@@ -80,11 +91,20 @@
     position: relative;
     height: 56px;
 
+    @media (max-width: 767px) {
+      padding-left: 36px;
+      padding-right: 36px;
+    }
+
     img {
       position: relative;
       z-index: 2;
       height: 28px;
       width: auto;
+
+      @media (max-width: 767px) {
+        height: 24px;
+      }
     }
 
     &:after {
@@ -168,6 +188,11 @@
     padding: 16px 40px 0;
     background: var(--headerBg);
     position: relative;
+
+    @media (max-width: 999px) {
+      padding-left: 37px;
+      padding-right: 37px;
+    }
 
     &:after {
       content: '';

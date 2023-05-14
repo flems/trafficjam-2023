@@ -65,7 +65,7 @@ onMounted(() => {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 90%;
+    width: 100%;
     height: auto;
     filter: blur(10px);
     transform: translateX(-50%);
@@ -73,7 +73,7 @@ onMounted(() => {
   }
   
   &__img {
-    width: 90%;
+    width: 100%;
     max-width: 1120px;
     display: block;
     position: relative;
@@ -99,7 +99,6 @@ onMounted(() => {
   position: absolute;
 
   &__container {
-    // max-width: 1920px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -112,15 +111,60 @@ onMounted(() => {
     z-index: 9;
     position: absolute;
     top: 256px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (max-width: 1279px) {
+      width: 112%;
+    }
+
+    @media (max-width: 999px) {
+      top: 240px;
+    }
+
+    @media (max-width: 767px) {
+      min-width: 768px;
+      top: 180px;
+    }
+
+    @media (max-width: 479px) {
+      top: 55%;
+    }
   }
 
   &__austronaut {
     position: absolute;
-    left: 36%;
+    left: 40%;
     top: 206px;
     width: 34%;
     z-index: 12;
+
+    @media (max-width: 1439px) {
+      left: 35%;
+    }
+
+    @media (max-width: 1279px) {
+      top: 136px;
+    }
+
+    @media (max-width: 999px) {
+      top: 130px;
+      width: 37%;
+      left: 32%;
+    }
+
+    @media (max-width: 767px) {
+      top: 64px;
+      width: 63%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 479px) {
+      top: 40%;
+      left: 0;
+      transform: none;
+    }
   }
 
   &__ship {
@@ -134,6 +178,20 @@ onMounted(() => {
 
     @media (max-width: 1440px) {
       right: 5%;
+    }
+
+    @media (max-width: 999px) {
+      top: 106px;
+    }
+
+    @media (max-width: 767px) {
+      width: 25%;
+      top: 10%;
+      right: 10px;
+    }
+
+    @media (max-width: 479px) {
+      top: 80px;
     }
   }
 
@@ -182,6 +240,16 @@ onMounted(() => {
     width: 250%;
     z-index: -1;
 
+    @media (max-width: 479px) {
+      position: absolute;
+      top: 81%;
+      right: -225%;
+      width: 640%;
+      z-index: -1;
+      transform: rotate(-41deg);
+      filter: blur(34px);
+    }
+
     &:after {
       content: '';
       width: 100%;
@@ -198,6 +266,23 @@ onMounted(() => {
 .austronaut {
   max-width: 480px;
 
+  @media (max-width: 1439px) {
+    max-width: 406px;
+  }
+
+  @media (max-width: 1279px) {
+    max-width: 340px;
+  }
+
+  @media (max-width: 999px) {
+    max-width: 284px;
+  }
+
+  @media (max-width: 479px) {
+    max-width: 100%;
+    width: 100%;
+  }
+
   &__men {
     padding-top: 100%;
     width: 100%;
@@ -206,6 +291,16 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% 50%;
+
+    @media (max-width: 479px) {
+      margin-left: auto;
+      padding: 0;
+      margin-right: 20px;
+      width: 64%;
+      padding-top: 100%;
+      background-position: 0 0;
+      min-width: 230px;
+    }
   }
 
   &__timer-line {
@@ -214,6 +309,34 @@ onMounted(() => {
     top: 46%;
     left: 86%;
     width: 51%;
+    
+    @media (max-width: 1439px) {
+      width: 70%;
+    }
+    
+    @media (max-width: 1279px) {
+      width: 60%;
+      max-width: 245px;
+    }
+    
+    @media (max-width: 999px) {
+      max-width: 130px;
+      width: 80%;
+    }
+    
+    @media (max-width: 767px) {
+      left: auto;
+      right: 9.5%;
+      width: 48%;
+    }
+    
+    @media (max-width: 479px) {
+      left: auto;
+      right: 0;
+      width: 100%;
+      max-width: none;
+      top: 26%;
+    }
 
     &:before {
       content: '';
@@ -224,13 +347,44 @@ onMounted(() => {
       background-repeat: no-repeat;
       background-size: contain;
       background-position: 50% 50%;
+
+      @media (max-width: 999px) {
+        padding-top: 130%;
+        background-image: url('/images/main-page/timer-line-tablet.svg');
+      }
+      
+      @media (max-width: 767px) {
+        padding-top: 170%;
+        background-image: url('/images/main-page/timer-line-480.svg');
+      }
+
+      @media (max-width: 479px) {
+        width: 49%;
+        padding-top: 59%;
+        margin-left: auto;
+        margin-right: 20px;
+        background-image: url('/images/main-page/timer-line-360.svg');
+      }
     }
   }
 
   &__timer {
     position: absolute;
     left: 92%;
+    top: 100%;
     transform: translateX(-50%);
+
+    @media (max-width: 767px) {
+      left: 24px;
+      top: 97%;
+    }
+
+    @media (max-width: 479px) {
+      left: 0;
+      top: 94%;
+      transform: none;
+      width: 100%;
+    }
   }
 }
 
@@ -244,6 +398,15 @@ onMounted(() => {
 @keyframes ship {
   from {
     right: 33%;
+  }
+}
+
+@media (max-width: 999px) {
+  @keyframes ship {
+    from {
+      right: 33%;
+      top: 216px;
+    }
   }
 }
 </style>

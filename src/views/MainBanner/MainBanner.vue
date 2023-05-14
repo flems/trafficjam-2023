@@ -8,8 +8,10 @@
           <img src="/images/icons/calendar.svg" alt="">
           <span>Июнь-октябрь</span>
         </p>
-        <banner-title />
-        <p class="banner-announce__text">Лей на офферы Rafinad — забирай призы!</p>
+        <div class="banner-announce banner__announce-wrapper">
+          <banner-title />
+          <p class="banner-announce__text">Лей на офферы Rafinad — забирай призы!</p>
+        </div>
       </div>
       <div class="banner__actions">
         <button class="banner__button">Пристыковаться</button>
@@ -30,7 +32,18 @@ import SpaceObjects from './components/SpaceObjects.vue';
 .banner {
   padding-top: 170px;
   position: relative;
-  padding-bottom: 80px;
+
+  @media (max-width: 1279px) {
+    padding-top: 100px;
+  }
+
+  @media (max-width: 767px) {
+    padding-bottom: calc(14% + 270px);
+  }
+
+  @media (max-width: 479px) {
+    padding-bottom: 90%;
+  }
 
   &__space-objects {
     position: absolute;
@@ -39,6 +52,18 @@ import SpaceObjects from './components/SpaceObjects.vue';
     height: 100%;
     width: 100%;
     z-index: 2;
+
+    @media (max-width: 767px) {
+      z-index: 3;
+      pointer-events: none;
+      top: 200px;
+    }
+
+    @media (max-width: 479px) {
+      z-index: 2;
+      pointer-events: none;
+      top: 20px;
+    }
   }
 
   &__announce {
@@ -46,6 +71,29 @@ import SpaceObjects from './components/SpaceObjects.vue';
     max-width: 410px;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 1279px) {
+      max-width: 324px;
+    }
+
+    @media (max-width: 999px) {
+      max-width: 290px;
+    }
+
+    @media (max-width: 767px) {
+      max-width: 100%;
+    }
+  }
+
+  &__announce-wrapper {
+    @media (max-width: 767px) {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 479px) {
+      display: block;
+    }
   }
 
   &__actions {
@@ -55,6 +103,14 @@ import SpaceObjects from './components/SpaceObjects.vue';
     pointer-events: none;
     display: flex;
     flex-wrap: wrap;
+
+    @media (max-width: 1279px) {
+      margin-top: 40px;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 
   &__button {
@@ -74,6 +130,11 @@ import SpaceObjects from './components/SpaceObjects.vue';
     pointer-events: all;
     transition: all 0.2s ease-in;
 
+    @media (max-width: 359px) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
     &:hover {
       border-color: #FCFDFD;
       box-shadow: 0px 0px 7px #FFFFFF, 0px 0px 20px #0085FF, 0px 0px 20px #0085FF, inset 0px 0px 7px #FFFFFF, inset 0px 0px 20px #00E0FF, inset 0px 0px 20px #00E0FF;
@@ -88,6 +149,10 @@ import SpaceObjects from './components/SpaceObjects.vue';
     display: flex;
     align-items: center;
     pointer-events: all;
+
+    @media (max-width: 999px) {
+      display: none;
+    }
 
     span {
       transition: box-shadow 0.2s ease-in;
@@ -114,8 +179,20 @@ import SpaceObjects from './components/SpaceObjects.vue';
 }
 
 .banner-announce {
-  &__title {
+  .banner-title {
     width: 100%;
+    display: block;
+
+    @media (max-width: 767px) {
+      max-width: 290px;
+      flex-shrink: 0;
+      width: 66%;
+    }
+
+    @media (max-width: 479px) {
+      width: 100%;
+      max-width: none;
+    }
   }
 
   &__date {
@@ -139,6 +216,23 @@ import SpaceObjects from './components/SpaceObjects.vue';
     text-transform: uppercase;
     color: #FCFDFD;
     margin-top: 24px;
+
+    @media (max-width: 999px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 767px) {
+      margin-top: 0;
+      padding-left: 16px;
+      font-size: 14px;
+      max-width: 200px;
+    }
+
+    @media (max-width: 479px) {
+      margin-top: 10px;
+      padding-left: 0;
+      max-width: 121px;
+    }
   }
 }
 

@@ -28,11 +28,14 @@ html, body {
 }
 
 .container {
-    padding: 0 100px;
-    // max-width: 1920px;
-    max-width: 1600px;
+    padding: 0 50px;
+    max-width: 1340px;
     margin: 0 auto;
     width: 100%;
+
+    @media (max-width: 1000px) {
+        padding: 0 20px;
+    }
 }
 
 .row {
@@ -56,6 +59,11 @@ h2 {
     font-size: 40px;
     line-height: 1.4;
     margin-bottom: 40px;
+
+    @media (max-width: 999px) {
+        margin-bottom: 32px;
+        font-size: 28px;
+    }
 }
 
 h3 {

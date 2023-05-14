@@ -16,7 +16,7 @@
           <td class="rating-table__cell">
             <span
               class="rating-table__trend"
-              :class="{ 'rating-table__trend--down': item.prev_position > item.id }"
+              :class="{ 'rating-table__trend--down': item.prev_position < item.id }"
               v-if="item.prev_position !== item.id"
             ></span>
           </td>

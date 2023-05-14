@@ -3,7 +3,7 @@
     <section class="main-page__section">
       <banner />
     </section>
-    <section class="main-page__section">
+    <!-- <section class="main-page__section">
       <mechanics />
     </section>
     <section class="main-page__section">
@@ -14,7 +14,7 @@
     </section>
     <section class="main-page__section">
       <main-rating />
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -38,8 +38,21 @@ import MainRating from '@/views/MainRating/MainRating.vue'
   &__section {
     position: relative;
     z-index: 2;
+
     & + & {
       margin-top: 180px;
+
+      @media (max-width: 1279px) {
+        margin-top: 140px;
+      }
+
+      @media (max-width: 999px) {
+        margin-top: 100px;
+      }
+
+      @media (max-width: 767px) {
+        margin-top: 80px;
+      }
     }
   }
 }

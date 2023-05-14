@@ -8,6 +8,7 @@
     :
     <span class="timer__number">58</span>
   </div>
+  <button class="banner__button">Пристыковаться</button>
 </div>
 </template>
 
@@ -15,6 +16,15 @@
 </script>
 
 <style lang="scss" scoped>
+.banner__button {
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+    position: absolute;
+    bottom: 113px;
+  }
+}
 .timer {
   display: flex;
   flex-direction: column;
@@ -28,6 +38,7 @@
     color: #FDFDFD;
     margin-bottom: 4px;
     line-height: 1.25;
+    font-weight: 400;
     font-size: 16px;
     font-family: 'Graphik LCG', sans-serif;
   }

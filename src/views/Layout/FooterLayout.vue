@@ -72,7 +72,7 @@ const socialList = [
 .footer {
   border-bottom: none;
   position: relative;
-  z-index: 2;
+  z-index: 1;
   padding-top: 100px;
 
   &:before {
@@ -81,8 +81,8 @@ const socialList = [
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-image: url(/images/footer.png);
+    padding-top: 40%;
+    background-image: url('/images/footer.png');
     background-repeat: no-repeat;
     background-position: 50% 100%;
     z-index: -1;
