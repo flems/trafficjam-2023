@@ -206,8 +206,6 @@ const prizes = [
     text-transform: uppercase;
     line-height: 1.4;
     color: #FDFDFD;
-    font-size: 16px;
-    padding: 24px;
     max-width: calc(100% - 50px - 8px);
   }
 
@@ -235,6 +233,14 @@ const prizes = [
       color: #000210;
       padding: 32px;
       flex-grow: 1;
+
+      @media (max-width: 1399px) {
+        padding: 32px 24px;
+      }
+
+      @media (max-width: 999px) {
+        font-size: 24px;
+      }
     }
 
     #{$parent}__image {
@@ -253,6 +259,11 @@ const prizes = [
       font-size: 24px;
       color: #000210;
       padding: 32px;
+
+      @media (max-width: 1279px) {
+        font-size: 20px;
+        padding: 24px;
+      }
     }
 
     #{$parent}__image {
@@ -261,6 +272,26 @@ const prizes = [
       bottom: 0;
       right: 0;
       height: 67%;
+    }
+  }
+
+  &--size-m {
+    #{$parent}__title {
+      font-size: 16px;
+      padding: 24px 20px;
+
+      @media (max-width: 1279px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 767px) {
+        padding: 24px 12px;
+        font-size: 16px;
+      }
+
+      @media (max-width: 479px) {
+        padding: 24px;
+      }
     }
   }
   
@@ -272,6 +303,11 @@ const prizes = [
 
     #{$parent}__title {
       max-width: 100%;
+
+      @media (max-width: 1279px) {
+        font-size: 16px;
+        padding: 20px;
+      }
     }
   }
 }

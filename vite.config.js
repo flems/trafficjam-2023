@@ -10,5 +10,10 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  // root: './rafinad',
+  // build: {
+  //     outDir: 'dist/rafinad',
+  // },
+  // publicDir: 'public'
 })

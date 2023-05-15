@@ -31,6 +31,10 @@ defineProps({
   color: #FDFDFD;
   transition: all 0.2s ease-in;
 
+  @media (max-width: 999px) {
+    padding: 32px 16px;
+  }
+
   b {
     font-weight: 600;
     color: #6285FE;

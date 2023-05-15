@@ -1,7 +1,11 @@
 <template>
   <div class="number"
     :class="[
-      { 'number--active': active },
+      {
+        'number--active': active,
+        'number--text': text,
+        'number--highlighted-text': highlightedText,
+      },
       `number--theme-${theme}`,
       `number--size-${size}`
     ]"
@@ -27,6 +31,14 @@ defineProps({
     type: String,
     default: 'l',
     validator: prop => ['l', 'm'].includes(prop)
+  },
+  text: {
+    type: Boolean,
+    default: false
+  },
+  highlightedText: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
@@ -36,7 +48,7 @@ defineProps({
   $parent: &;
   width: max-content;
   position: relative;
-  padding: 16px;
+  // padding: 16px;
 
   &--active {
     #{$parent}__text {
@@ -57,14 +69,10 @@ defineProps({
   &__text {
     color: #fff;
     font-weight: 500;
-    font-size: 24px;
     line-height: 140%;
     font-family: 'Unbounded', sans-serif;
     display: block;
-    width: 70px;
-    height: 70px;
     position: relative;
-    line-height: 70px;
     text-align: center;
     white-space: nowrap;
     position: relative;
@@ -77,7 +85,7 @@ defineProps({
       height: 100%;
       position: absolute;
       top: 0px;
-      border-radius: 16px;
+      // border-radius: 16px;
       left: 0px;
       transform: rotate(45deg);
       background: #2F2F2F;
@@ -87,16 +95,68 @@ defineProps({
     }
   }
 
-  &--size {
-    &-m {
+  &--size-m {
+    padding: 16px;
+
+    #{$parent}__text {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      line-height: 30px;
+      
+      &:after {
+        border-radius: 4px;
+      }
+    }
+
+    #{$parent}--text {
+
+    }
+  }
+
+  &--size-l {
+    padding: 16px;
+
+    @media (max-width: 1279px) {
+      padding: 12px;
+    }
+
+    #{$parent}__text {
+      width: 70px;
+      height: 70px;
+      font-size: 24px;
+      line-height: 70px;
+
+      @media (max-width: 1279px) {
+        width: 56px;
+        height: 56px;
+        line-height: 56px;
+      }
+
+      @media (max-width: 767px) {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+      }
+      
+      &:after {
+        border-radius: 16px;
+
+        @media (max-width: 767px) {
+          border-radius: 12px;
+        }
+      }
+    }
+
+    &#{$parent}--text {
       #{$parent}__text {
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-        line-height: 30px;
-        
-        &:after {
-          border-radius: 4px;
+        @media (max-width: 1279px) {
+          font-size: 16px;
+        }
+
+        @media (max-width: 767px) {
+          font-size: 12px;
         }
       }
     }
@@ -108,6 +168,16 @@ defineProps({
         &:after {
           background: #6285FE;
         }
+      }
+    }
+  }
+
+  &--highlighted-text {
+    &#{$parent}--active {
+      #{$parent}__text {
+        color: #6285FE;
+        text-shadow: -2px 1px 0 white, -1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white, 0px 1px 0 white, 0px -1px 0 white, -1px 0px 0 white, 1px 0px 0 white, 2px 2px 0 white, -2px 2px 0 white, 2px -2px 0 white, -2px -2px 0 white, 0px 2px 0 white, 0px -2px 0 white, -2px 0px 0 white, 2px 0px 0 white, 1px 2px 0 white, -1px 2px 0 white, 1px -2px 0 white, -1px -2px 0 white, 2px 1px 0 white, -2px 1px 0 white, 2px -1px 0 white, -2px -1px 0 white, 0px 0px 7px #FFFFFF, 0px 0px 20px #0085FF, 0px 0px 20px #0085FF;
+        font-weight: 400;  
       }
     }
   }

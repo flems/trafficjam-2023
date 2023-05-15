@@ -3,7 +3,7 @@
     <section class="main-page__section">
       <banner />
     </section>
-    <!-- <section class="main-page__section">
+    <section class="main-page__section">
       <mechanics />
     </section>
     <section class="main-page__section">
@@ -14,7 +14,7 @@
     </section>
     <section class="main-page__section">
       <main-rating />
-    </section> -->
+    </section>
   </div>
 </template>
 
