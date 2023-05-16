@@ -32,7 +32,7 @@
             <div class="mp-prizes__sub-list">
               <div
                 class="mp-prizes__sub-item"
-                :class="`mp-prizes__sub-item--${index + 1}`"
+                :class="`mp-prizes__sub-item--${subIndex + 1}`"
                 v-for="(subItem, subIndex) in item.items"
                 :key="subIndex"
               >
@@ -162,28 +162,75 @@ const prizes = [
     display: grid;
     grid-gap: 20px;
     grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
   }
 
   &__item {
+    grid-column: span 2;
+
+    @media (max-width: 999px) {
+      grid-column: span 3;
+    }
+
+    @media (max-width: 767px) {
+      grid-column: span 6;
+    }
+
+    @media (max-width: 479px) {
+      grid-column: span 12;
+    }
+
     &--1 {
       grid-row-start: 1;
       grid-row-end: 3;
       grid-column-start: 1;
-      grid-column-end: 3;
+      grid-column-end: 5;
+
+      @media (max-width: 999px) {
+        grid-column-end: 7;
+      }
+
+      @media (max-width: 767px) {
+        grid-column-end: 13;
+      }
     }
 
     &--2, &--3 {
-      grid-column: span 2;
+      grid-column: span 4;
+
+      @media (max-width: 999px) {
+        grid-column: span 6;
+      }
+
+      @media (max-width: 767px) {
+        grid-column: span 12;
+      }
     }
 
     &--4 {
-      grid-column: span 4;
+      grid-column: span 8;
+
+      @media (max-width: 999px) {
+        grid-column: span 12;
+      }
     }
 
     &--5 {
-      grid-column-start: 3;
-      grid-column-end: 4;
+      grid-column-start: 5;
+      grid-column-end: 7;
+
+      @media (max-width: 999px) {
+        grid-column-start: 1;
+        grid-column: span 3;
+      }
+
+      @media (max-width: 767px) {
+        grid-column: span 6;
+      }
+
+      @media (max-width: 479px) {
+        grid-column: span 12;
+      }
     }
   }
 
@@ -192,7 +239,25 @@ const prizes = [
     display: grid;
     grid-gap: 20px;
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__sub-item {
+    grid-column: span 4;
+
+    @media (max-width: 767px) {
+      grid-column: span 6;
+    }
+
+    @media (max-width: 479px) {
+      grid-column: span 12;
+    }
+
+    &--1 {
+      @media (max-width: 767px) {
+        grid-column: span 12;
+      }
+    }
   }
 }
 
@@ -303,10 +368,12 @@ const prizes = [
 
     #{$parent}__title {
       max-width: 100%;
+      padding: 20px;
+      font-size: 16px;
 
       @media (max-width: 1279px) {
         font-size: 16px;
-        padding: 20px;
+        padding: 14px;
       }
     }
   }

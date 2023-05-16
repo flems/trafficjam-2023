@@ -121,6 +121,10 @@ defineProps({
       padding: 12px;
     }
 
+    @media (max-width: 479px) {
+      padding: 8px;
+    }
+
     #{$parent}__text {
       width: 70px;
       height: 70px;
@@ -139,12 +143,23 @@ defineProps({
         line-height: 40px;
         font-size: 18px;
       }
+
+      @media (max-width: 479px) {
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        font-size: 12px;
+      }
       
       &:after {
         border-radius: 16px;
 
         @media (max-width: 767px) {
           border-radius: 12px;
+        }
+
+        @media (max-width: 479px) {
+          border-radius: 4px;
         }
       }
     }
@@ -157,6 +172,10 @@ defineProps({
 
         @media (max-width: 767px) {
           font-size: 12px;
+        }
+
+        @media (max-width: 479px) {
+          font-size: 9px;
         }
       }
     }

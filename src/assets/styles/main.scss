@@ -44,6 +44,10 @@ html, body {
   @media (max-width: 1000px) {
     padding: 0 20px;
   }
+
+  @media (max-width: 479px) {
+    padding: 0 16px;
+  }
 }
 
 .row {
