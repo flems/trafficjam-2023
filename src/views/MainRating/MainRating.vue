@@ -1,6 +1,6 @@
 <template>
   <div class="mp-rating" v-if="data && data.length">
-    <div class="container">
+    <div class="container mp-rating__wrapper">
       <h2>ТОП участников</h2>
       <div class="mp-rating__container">
 
@@ -33,6 +33,99 @@ const getData = () => {
     })
     .catch(error => {
       console.error(error);
+
+      data.value = [
+        {
+            "user_id": 9353,
+            "id": 1,
+            "sugar_id": "k10307",
+            "lvl": 4,
+            "percentage": 25,
+            "prev_position": 322,
+            "count": 5089.27
+        },
+        {
+            "user_id": 9354,
+            "id": 2,
+            "sugar_id": "k10307",
+            "lvl": 4,
+            "percentage": 100,
+            "prev_position": 3,
+            "count": 5089.27
+        },
+        {
+            "user_id": 9355,
+            "id": 3,
+            "sugar_id": "k10307",
+            "lvl": 2,
+            "percentage": 63,
+            "prev_position": 2,
+            "count": 5089.27
+        },
+        {
+            "user_id": 93556,
+            "id": 4,
+            "sugar_id": "k10307",
+            "lvl": 1,
+            "percentage": 63,
+            "prev_position": 4,
+            "count": 5089.27
+        },
+        {
+            "user_id": 93556,
+            "id": 5,
+            "sugar_id": "k10307",
+            "lvl": 1,
+            "percentage": 63,
+            "prev_position": 2,
+            "count": 5089.27
+        },
+        {
+            "user_id": 9354,
+            "id": 6,
+            "sugar_id": "k10307",
+            "lvl": 4,
+            "percentage": 100,
+            "prev_position": 3,
+            "count": 5089.27
+        },
+        {
+            "user_id": 9355,
+            "id": 7,
+            "sugar_id": "k10307",
+            "lvl": 2,
+            "percentage": 63,
+            "prev_position": 2,
+            "count": 5089.27
+        },
+        {
+            "user_id": 93556,
+            "id": 8,
+            "sugar_id": "k10307",
+            "lvl": 1,
+            "percentage": 63,
+            "prev_position": 4,
+            "count": 5089.27
+        },
+        {
+            "user_id": 93556,
+            "id": 9,
+            "sugar_id": "k10307",
+            "lvl": 1,
+            "percentage": 63,
+            "prev_position": 2,
+            "count": 5089.27
+        },
+        {
+            "user_id": 9353,
+            "id": 10,
+            "sugar_id": "k10307",
+            "lvl": 4,
+            "percentage": 25,
+            "prev_position": 322,
+            "count": 5089.27
+        },
+    ]
     })
 }
 
@@ -65,10 +158,30 @@ onBeforeMount(() => {
 }
 
 .mp-rating {
+  &__wrapper {
+    position: relative;
+
+    &:after {
+      content: '';
+      background-image: url('/images/main-page/bg-2.svg');
+      width: 800px;
+      height: 400px;
+      display: block;
+      position: absolute;
+      top: -12%;
+      left: 60%;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+    }
+  }
+
   &__container {
     border-radius: 16px;
     position: relative;
     padding-bottom: 26px;
+    background: rgba(0, 2, 16, 0.5);
+    margin-bottom: 20px;
     
     &::after {
       content: '';

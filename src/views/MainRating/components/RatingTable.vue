@@ -51,6 +51,18 @@ defineProps({
 
 <style lang="scss">
 .rating-table {
+  font-size: 16px;
+  overflow: auto;
+  border-radius: 16px;
+
+  @media (max-width: 999px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 13px;
+  }
+
   &__trend {
     background-repeat: no-repeat;
     background-size: contain;
@@ -60,6 +72,15 @@ defineProps({
     display: block;
     background-image: url(/images/main-page/trend-up.png);
     margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+
+    @media (max-width: 479px) {
+      width: 40px;
+      height: 40px;
+    }
     
     &--down {
       background-image: url(/images/main-page/trend-down.png);
@@ -68,6 +89,8 @@ defineProps({
 
   &__table {
     width: 100%;
+    min-width: 700px;
+    table-layout:fixed;
   }
 
   &__head {
@@ -90,20 +113,62 @@ defineProps({
   }
 
   &__cell {
-    width: 5%;
+    width: 10%;
+    min-width: 70px;
     text-align: left;
     padding: 14px 8px;
     color: #FDFDFD;
     font-weight: 500;
     vertical-align: middle;
+    font-size: 1em;
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    @media (max-width: 999px) {
+      padding: 10px 4px;
+    }
+
+    @media (max-width: 767px) {
+      width: 70px;
+    }
 
     &:first-child {
       padding-left: 40px;
+
+      @media (max-width: 999px) {
+        padding-left: 16px;
+      }
+
+      @media (max-width: 479px) {
+        padding-left: 8px;
+      }
+    }
+
+    &:nth-of-type(3) {
+      @media (max-width: 767px) {
+        width: 15%;
+      }
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      @media (max-width: 767px) {
+        width: 54px;
+      }
     }
 
     &:last-child {
       width: 80%;
       padding-right: 40px;
+
+      @media (max-width: 999px) {
+        padding-right: 16px;
+      }
+
+      @media (max-width: 479px) {
+        padding-right: 8px;
+      }
     }
 
     &--head {
@@ -114,6 +179,14 @@ defineProps({
       color: #6B6B6B;
       padding: 32px 8px 20px;
       min-width: 80px;
+
+      @media (max-width: 999px) {
+        font-size: 12px;
+      }
+
+      @media (max-width: 479px) {
+        font-size: 11px;
+      }
     }
   }
 }

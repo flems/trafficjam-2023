@@ -96,7 +96,11 @@ defineProps({
   }
 
   &--size-m {
-    padding: 16px;
+    padding: 12px;
+
+    @media (max-width: 479px) {
+      padding: 8px;
+    }
 
     #{$parent}__text {
       width: 30px;
@@ -107,10 +111,6 @@ defineProps({
       &:after {
         border-radius: 4px;
       }
-    }
-
-    #{$parent}--text {
-
     }
   }
 

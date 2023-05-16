@@ -9,10 +9,10 @@
     <section class="main-page__section">
       <sponsors />
     </section>
-    <section class="main-page__section">
+    <section class="main-page__section main-page__section--prizes">
       <prizes />
     </section>
-    <section class="main-page__section">
+    <section class="main-page__section main-page__section--rating">
       <main-rating />
     </section>
   </div>
