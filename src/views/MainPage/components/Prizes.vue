@@ -70,7 +70,7 @@ const prizes = [
   {
     tagName: '1 место',
     tagWidth: '85px',
-    title: '600&nbsp;000 рублей',
+    title: '1&nbsp;000&nbsp;000 рублей',
     theme: 'blue',
     image: '/images/main-page/prizes/1.png',
     size: 'xl',
@@ -80,7 +80,7 @@ const prizes = [
     tagName: '2 место',
     tagWidth: '85px',
     theme: 'blue',
-    title: '300&nbsp;000 рублей',
+    title: '600&nbsp;000 рублей',
     image: '/images/main-page/prizes/2.png',
     size: 'l'
   },
@@ -88,7 +88,7 @@ const prizes = [
     tagName: '3 место',
     tagWidth: '85px',
     theme: 'blue',
-    title: '100&nbsp;000 рублей',
+    title: '400&nbsp;000 рублей',
     image: '/images/main-page/prizes/3.png',
     size: 'l'
   },
@@ -99,7 +99,7 @@ const prizes = [
         tagName: '4',
         tagWidth: '50px',
         theme: 'black',
-        title: 'Apple iMac 24-inch',
+        title: '300&nbsp;000 рублей',
         image: '',
         size: 'm'
       },
@@ -107,7 +107,7 @@ const prizes = [
         tagName: '5',
         tagWidth: '50px',
         theme: 'black',
-        title: 'Apple MacBook Pro 13',
+        title: 'Apple MacBook Air 13.6"',
         image: '',
         size: 'm'
       },
@@ -115,7 +115,7 @@ const prizes = [
         tagName: '6',
         tagWidth: '50px',
         theme: 'black',
-        title: 'apple ipad 256gb',
+        title: 'Apple iPad Pro 12.9 M2 (2022)',
         image: '',
         size: 'm'
       },
@@ -125,7 +125,7 @@ const prizes = [
     tagName: '7',
     tagWidth: '50px',
     theme: 'black',
-    title: 'apple iphone 14 pro max 256gb',
+    title: 'iPhone&nbsp;14 Pro Max 512Gb eSim',
     image: '',
     size: 's'
   },
@@ -133,7 +133,7 @@ const prizes = [
     tagName: '8',
     tagWidth: '50px',
     theme: 'black',
-    title: 'Название приза',
+    title: 'Samsung Galaxy S23 Ultra 8/256Gb',
     image: '',
     size: 's'
   },
@@ -141,7 +141,7 @@ const prizes = [
     tagName: '9',
     tagWidth: '50px',
     theme: 'black',
-    title: 'Название приза',
+    title: 'Apple Watch Ultra GPS',
     image: '',
     size: 's'
   },
@@ -149,7 +149,7 @@ const prizes = [
     tagName: '10',
     tagWidth: '50px',
     theme: 'black',
-    title: 'Название приза',
+    title: 'Sony Playstation&nbsp;5',
     image: '',
     size: 's'
   }

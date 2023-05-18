@@ -42,11 +42,11 @@ const parallax = (event, items) => {
 }
 
 const init = () => {
-  const parallaxItems = [austronaut.value, ship.value, timerLine.value]
+  // const parallaxItems = [austronaut.value, ship.value, timerLine.value]
 
-  container.value.addEventListener('mousemove', e => {
-    parallax(e, parallaxItems)
-  })
+  // container.value.addEventListener('mousemove', e => {
+  //   parallax(e, parallaxItems)
+  // })
 }
 
 onMounted(() => {
@@ -291,6 +291,9 @@ onMounted(() => {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% 50%;
+    animation: levitate-animation 2s ease-in-out infinite alternate;
+    transform-origin: center;
+    transform: translate3d(0, 0, 0);
 
     @media (max-width: 479px) {
       margin-left: auto;
@@ -407,6 +410,15 @@ onMounted(() => {
       right: 33%;
       top: 216px;
     }
+  }
+}
+
+@keyframes levitate-animation {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0px, -10px, 0);
   }
 }
 </style>

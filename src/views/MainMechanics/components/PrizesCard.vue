@@ -10,7 +10,7 @@
     :score="item.score"
     :progress="item.progress"
     :last="item.last"
-    :them="item.theme"
+    :theme="item.theme"
     :active-icon="item['active-icon']"
     :text="item.text"
     :highlighted-text="item['highlighted-text']"

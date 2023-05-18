@@ -3,13 +3,13 @@
     <div class="container">
       <div class="footer__container">
         <div class="row">
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-6 col-xl-3 col-lg-4">
             <div class="footer__logo-wrapper">
-              <img class="footer__logo" src="/images/logo.svg" alt="">
+              <a href="https://rafinad.io/" target="_blank"><img class="footer__logo" src="/images/logo.svg" alt=""></a>
               <p class="footer__copyright">©️ 2023 Rafinad  ИНН 561654684</p>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-8 offset-lg-1">
+          <div class="col-12 col-md-6 col-lg-8 offset-xl-1 offset-lg-0">
             <div class="footer__links-container">
               <div class="footer__nav">
                 <p class="footer__title">Документация</p>
@@ -25,6 +25,7 @@
         </div>
       </div>
     </div>
+    <span class="footer-bg"></span>
   </footer>
 </template>
 
@@ -33,41 +34,37 @@ import FooterNav from '@/components/FooterNav'
 
 const footerMenu = [
   {
-    link: '#',
+    link: 'https://rafinad.io/static/web/trafficjam2022/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%20TrafficJam.pdf',
     name: 'Публичная оферта'
   },
   {
-    link: '#',
-    name: 'Лицензия сайта'
-  },
-  {
-    link: '#',
+    link: 'https://rafinad.io/static/web/trafficjam2022/politics.pdf',
     name: 'Политика конфиденциальности'
   },
   {
-    link: '#',
+    link: 'https://rafinad.io/faq/',
     name: 'Вопрос-ответ'
   }
 ]
 
 const socialList = [
   {
-    link: '#',
+    link: 'https://t.me/rafinad_channel',
     name: 'Telegram',
     icon: '/images/icons/telegram.svg'
   },
   {
-    link: '#',
+    link: 'https://vk.com/rafinad_cpa',
     name: 'Вконтакте',
     icon: '/images/icons/vk.svg'
   },
   {
-    link: '#',
+    link: 'http://tenchat.ru/rafinadio',
     name: 'TenChat',
     icon: '/images/icons/tenchat.svg'
   },
   {
-    link: '#',
+    link: 'http://instagram.com/rafinad.io',
     name: 'Та самая соцсеть',
     icon: '/images/icons/inst.svg'
   }
@@ -75,24 +72,38 @@ const socialList = [
 </script>
 
 <style lang="scss">
+.footer-bg {
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  width: 100%;
+  min-width: 1240px;
+  max-width: 1920px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  background: #000210;
+
+  @media (max-width: 999px) {
+    bottom: 50%;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    background-image: url(/images/footer.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    background-size: contain;
+    padding-top: 41%;
+  }
+}
 .footer {
   border-bottom: none;
   position: relative;
   z-index: 1;
   padding-top: 100px;
-
-  // &:before {
-  //   content: '';
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   padding-top: 40%;
-  //   background-image: url('/images/footer.png');
-  //   background-repeat: no-repeat;
-  //   background-position: 50% 100%;
-  //   z-index: -1;
-  // }
 
   &__logo-wrapper {
     display: flex;
@@ -140,6 +151,10 @@ const socialList = [
     border: 2px solid #6B6B6B;
     border-bottom: none;
     backdrop-filter: blur(11px);
+    
+    @media (max-width: 1000px) {
+      padding: 60px;
+    }
 
     @media (max-width: 992px) {
       padding: 40px;

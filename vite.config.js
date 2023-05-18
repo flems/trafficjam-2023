@@ -1,11 +1,17 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import { imageOptimizationConfig } from './config'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    ViteImageOptimizer({
+      imageOptimizationConfig
+    })
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -17,10 +23,5 @@ export default defineConfig({
         manualChunks: () => 'main.js'
       },
     },
-  },
-  // root: './rafinad',
-  // build: {
-  //     outDir: 'dist/rafinad',
-  // },
-  // publicDir: 'public/rafinad'
+  }
 })

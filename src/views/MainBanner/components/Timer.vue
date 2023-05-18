@@ -1,18 +1,93 @@
 <template>
-<div class="timer">
+<div class="timer" v-if="day && hour && tmin">
   <p class="timer__title">До старта конкурса:</p>
   <div class="timer__container">
-    <span class="timer__number">12</span>
-    :
-    <span class="timer__number">24</span>
-    :
-    <span class="timer__number">58</span>
+    
+    <span class="timer__number">
+      <span v-html="day"></span>&nbsp;д
+    </span>
+    <template v-if="hour">
+      :
+      <span class="timer__number" v-if="hour">
+        <span v-html="hour"></span>&nbsp;ч
+      </span>
+    </template>
+
+    <template v-if="tmin">
+      :
+      <span class="timer__number">
+        <span v-html="tmin"></span>&nbsp;м
+      </span>
+    </template>
+    
   </div>
   <button class="banner__button">Пристыковаться</button>
 </div>
 </template>
 
 <script setup>
+import { onMounted, ref, computed, onUnmounted } from 'vue'
+
+const timer = ref(null)
+const timeend = new Date(2023, 5, 1, 0, 0, 0, 0)
+const tmin = ref(null)
+const tsec = ref(null)
+
+const getCurrentDate = () => {
+  const currentDate = new Date()
+  currentDate.setTime(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 3*60*60*1000)
+  currentDate.setDate(new Date().getUTCDate())
+  return currentDate
+}
+
+const hour = computed(() => {
+  let thour = Math.floor((timeend - getCurrentDate()) / 1000 / 60 / 60) % 24
+  if (thour < 0) thour = 0
+  if (thour < 10) {
+    thour = '0' + thour
+  }
+  return thour
+})
+
+const day = computed(() => {
+  let today = Math.floor((timeend - getCurrentDate()) / 1000 / 60 / 60 / 24)
+  if (today < 0) today = 0
+  if (today < 10) {
+      today = '0' + today
+  }
+  return today
+})
+
+const upd = () => {
+  tsec.value = Math.floor((timeend - getCurrentDate()) / 1000) % 60
+  if (tsec.value < 0) tsec.value = 0
+  if (tsec.value < 10) {
+      tsec.value = '0' + tsec.value
+  }
+
+  tmin.value = Math.floor((timeend - getCurrentDate()) / 1000 / 60) % 60
+  if (tmin.value < 0) tmin.value = 0
+  if (tmin.value < 10) {
+      tmin.value = '0' + tmin.value
+  }
+}
+
+const startTimer = () => {
+  timer.value = setInterval(upd, 1000)
+}
+
+const stopTimer = () => {
+  clearTimeout(timer.value)
+}
+
+onMounted(() => {
+  upd()
+  startTimer()
+})
+
+onUnmounted(() => {
+  stopTimer()
+})
 </script>
 
 <style lang="scss" scoped>

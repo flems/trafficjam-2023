@@ -29,8 +29,8 @@
                     progress: '5',
                     name: '4',
                     icon: 'box',
-                    score: '600&nbsp;000',
-                    theme: 'black',
+                    score: '1&nbsp;200&nbsp;000',
+                    theme: 'blue',
                     'active-icon': 'box-opened'
                   },
                   {
@@ -49,7 +49,7 @@
         <div class="col-12 col-md-4">
           <ui-card interactive full-height class="mechanics__card" @mouseleave="onMouseleave" @mouseenter="onMouseenter('top')">
               <h3 class="mechanics__title">Попадай в топ</h3>
-              <p>Начиная с <b>3-го уровня ты начинаешь бороться за место ТОПе</b>, где среди лучших 10 участников будет распределен призовой фонд <b>в __ рублей.</b></p>
+              <p>Начиная с <b>4-го уровня ты начинаешь бороться за место ТОПе</b>, где среди лучших 10 участников будет распределен призовой фонд <b>в&nbsp;3&nbsp;000&nbsp;000 рублей.</b></p>
               <prizes-card
                 class="mechanics__card-prizes"
                 :data="[
@@ -65,8 +65,8 @@
                     progress: '100',
                     name: '4',
                     icon: 'box',
-                    score: '600&nbsp;000',
-                    theme: 'black',
+                    score: '1&nbsp;200&nbsp;000',
+                    theme: 'blue',
                     'active-icon': 'box-opened'
                   },
                   {

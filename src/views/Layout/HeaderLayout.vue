@@ -11,7 +11,9 @@
             <span class="header__logo-border-top-left"></span>
             <span class="header__logo-border-bottom-left"></span>
           </div>
-          <img src="/images/logo.svg" alt="Rafinad">
+          <a href="https://rafinad.io/" target="_blank">
+            <img src="/images/logo.svg" alt="Rafinad">
+          </a>
         </div>
         <div class="header__right">
           <div class="header__menu">

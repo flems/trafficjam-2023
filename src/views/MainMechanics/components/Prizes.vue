@@ -22,7 +22,6 @@
       <step
         class="prizes__step"
         name="3"
-        theme="blue"
         icon="box"
         active-icon="box-opened"
         score="600&nbsp;000"
@@ -35,7 +34,7 @@
         theme="blue"
         icon="box"
         active-icon="box-opened"
-        score="600&nbsp;000"
+        score="1&nbsp;200&nbsp;000"
         :progress="progress.fourth"
         key="fourth"
       />
@@ -99,10 +98,9 @@
       <step
         class="prizes__step"
         name="4"
-        theme="blue"
         icon="box"
         active-icon="box-opened"
-        score="600&nbsp;000"
+        score="1&nbsp;200&nbsp;000"
         :progress="progress.fourth"
         key="fourth"
       />

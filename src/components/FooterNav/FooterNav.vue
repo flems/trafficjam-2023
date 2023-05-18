@@ -6,7 +6,7 @@
         v-for="(item, index) in data"
         :key="index"
       >
-        <a :href="item.link" class="footer-nav__link">
+        <a :href="item.link" class="footer-nav__link" target="_blank">
           <img class="footer-nav__icon" :src="item.icon" alt="" v-if="item.icon">
           <span v-html="item.name"></span>
         </a>
