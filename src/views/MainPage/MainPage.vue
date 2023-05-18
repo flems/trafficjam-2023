@@ -3,14 +3,14 @@
     <section class="main-page__section">
       <banner />
     </section>
-    <section class="main-page__section">
+    <section class="main-page__section" id="about">
       <mechanics />
     </section>
-    <section class="main-page__section main-page__section--sponsors">
+    <section class="main-page__section main-page__section--sponsors" id="sponsors">
       <sponsors />
       <div class="main-page__sponsors-bg"></div>
     </section>
-    <section class="main-page__section">
+    <section class="main-page__section" id="prizes">
       <prizes />
     </section>
     <section class="main-page__section">

@@ -16,8 +16,8 @@
           </a>
         </div>
         <div class="header__right">
-          <div class="header__menu">
-
+          <div class="header__menu" v-click-outside="closeMenu">
+            <div class="header__menu-patch"></div>
             <div class="header__logo-borders">
               <span class="header__logo-border-top-left"></span>
               <span class="header__logo-border-bottom-left"></span>
@@ -26,7 +26,19 @@
               <span class="header__logo-border-top-left"></span>
               <span class="header__logo-border-bottom-left"></span>
             </div>
-            <img width="28" height="28" src="/images/icons/menu.svg" alt="">
+            
+            <button class="header__burger" @click="toggleMenu">
+              <ui-icon
+                width="28"
+                height="28"
+                :name="isMenuOpened ? 'close' : 'burger'" />
+            </button>
+
+            <header-nav
+              class="header__nav"
+              :class="{ 'header__nav--opened' : isMenuOpened}"
+              @close="closeMenu"
+            />
           </div>
         </div>
     </div>
@@ -34,7 +46,19 @@
 </template>
 
 <script setup>
+import HeaderNav from '@/components/HeaderNav'
+import UiIcon from '@/components/UiIcon'
+import { ref } from 'vue'
 
+const isMenuOpened = ref(false)
+
+const toggleMenu = () => {
+  isMenuOpened.value = !isMenuOpened.value
+}
+
+const closeMenu = () => {
+  isMenuOpened.value = false
+}
 </script>
 
 <style lang="scss">
@@ -53,6 +77,17 @@
   width: 100%;
   z-index: 3;
 
+  &__burger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    svg {
+      pointer-events: none;
+    }
+  }
+
   &__container {
     display: flex;
 
@@ -62,13 +97,35 @@
     }
   }
 
+  &__nav {
+    position: absolute;
+    top: 0;
+    right: -2px;
+    z-index: -1;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out;
+    
+    .header-nav__link {
+      opacity: 0;
+      transition: opacity 0.2s ease-out 0.25s;
+    }
+
+    &--opened {
+      transform: translateY(0);
+
+      .header-nav__link {
+        opacity: 1;
+      }
+    }
+  }
+
   &:before {
     content: '';
     width: 100%;
     height: var(--headerHeight);
     top: 0;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
     left: 0;
     position: absolute;
     background: var(--headerBg);
@@ -186,9 +243,43 @@
     justify-content: flex-end;
   }
 
+  &__menu-patch {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 4px;
+    background: #000210;
+    pointer-events: none;
+
+    &:after,
+    &:before {
+      content: '';
+      background: #000210;
+      display: block;
+      position: absolute;
+      width: 40%;
+      height: 18px;
+      top: 100%;
+    }
+
+    &:after {
+      left: 0;
+      transform: translateX(40%);
+      border-bottom-left-radius: 100%;
+    }
+
+    &:before {
+      right: 0;
+      transform: translateX(-40%);
+      border-bottom-right-radius: 100%;
+    }
+  }
+
   &__menu {
     padding: 16px 40px 0;
-    background: var(--headerBg);
+    // background: var(--headerBg);
     position: relative;
 
     @media (max-width: 999px) {

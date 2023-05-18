@@ -17,13 +17,16 @@
                 :theme="item.theme"
                 full-height
                 class="prizes-card"
-                :class="`prizes-card--size-${item.size}`"
+                :class="[
+                  `prizes-card--size-${item.size}`,
+                  `prizes-card--index-${index + 1}`,
+                ]"
                 :active="item.active"
               >
               <template v-slot:default>
                 <div class="prizes-card__content">
                   <p class="prizes-card__title" v-html="item.title"></p>
-                  <img class="prizes-card__image" :src="item.image" alt="" width="100">
+                  <div class="prizes-card__image" :style="`background-image: url(${item.image})`"></div>
                 </div>
               </template>
             </card-default>
@@ -43,12 +46,15 @@
                   :theme="subItem.theme"
                   full-height
                   class="prizes-card"
-                  :class="`prizes-card--size-${subItem.size}`"
+                  :class="[
+                  `prizes-card--size-${subItem.size}`,
+                  `prizes-card--subindex-${subIndex + 1}`,
+                ]"
                 >
                   <template v-slot:default>
                     <div class="prizes-card__content">
                       <p class="prizes-card__title" v-html="subItem.title"></p>
-                      <img class="prizes-card__image" :src="subItem.image" alt="" width="100">
+                      <div class="prizes-card__image" :style="`background-image: url(${subItem.image})`"></div>
                     </div>
                   </template>
                 </card-default>
@@ -100,7 +106,7 @@ const prizes = [
         tagWidth: '50px',
         theme: 'black',
         title: '300&nbsp;000 рублей',
-        image: '',
+        image: '/images/main-page/prizes/4.png',
         size: 'm'
       },
       {
@@ -108,7 +114,7 @@ const prizes = [
         tagWidth: '50px',
         theme: 'black',
         title: 'Apple MacBook Air 13.6"',
-        image: '',
+        image: '/images/main-page/prizes/5.png',
         size: 'm'
       },
       {
@@ -116,7 +122,7 @@ const prizes = [
         tagWidth: '50px',
         theme: 'black',
         title: 'Apple iPad Pro 12.9 M2 (2022)',
-        image: '',
+        image: '/images/main-page/prizes/6.png',
         size: 'm'
       },
     ]
@@ -126,7 +132,7 @@ const prizes = [
     tagWidth: '50px',
     theme: 'black',
     title: 'iPhone&nbsp;14 Pro Max 512Gb eSim',
-    image: '',
+    image: '/images/main-page/prizes/7.png',
     size: 's'
   },
   {
@@ -134,15 +140,15 @@ const prizes = [
     tagWidth: '50px',
     theme: 'black',
     title: 'Samsung Galaxy S23 Ultra 8/256Gb',
-    image: '',
+    image: '/images/main-page/prizes/8.png',
     size: 's'
   },
   {
     tagName: '9',
     tagWidth: '50px',
     theme: 'black',
-    title: 'Apple Watch Ultra GPS',
-    image: '',
+    title: 'Apple<br>Watch<br>Ultra GPS',
+    image: '/images/main-page/prizes/9.png',
     size: 's'
   },
   {
@@ -150,7 +156,7 @@ const prizes = [
     tagWidth: '50px',
     theme: 'black',
     title: 'Sony Playstation&nbsp;5',
-    image: '',
+    image: '/images/main-page/prizes/10.png',
     size: 's'
   }
 ]
@@ -274,6 +280,27 @@ const prizes = [
     max-width: calc(100% - 50px - 8px);
   }
 
+  &__image {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    display: block;
+    z-index: -1;
+
+    @media (max-width: 1000px) {
+      background-size: contain !important;
+      background-position: 50% 50% !important;
+    }
+
+    &:after {
+      width: 100%;
+      display: block;
+      content: '';
+      padding-top: 78%;
+    }
+  }
+
   #{$parent}__content {
     position: absolute;
     top: 0;
@@ -309,7 +336,7 @@ const prizes = [
     }
 
     #{$parent}__image {
-      width: 100%;
+      margin-top: -20px;
     }
   }
   
@@ -332,15 +359,32 @@ const prizes = [
     }
 
     #{$parent}__image {
-      width: auto;
+      width: 100%;
       position: absolute;
-      bottom: 0;
-      right: 0;
-      height: 67%;
+      top: 50px;
+      right: 10px;
+      height: 83%;
+      background-position: 100% 0;
     }
   }
 
   &--size-m {
+    #{$parent}__image {
+      width: 100%;
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      height: calc(100% - 60px);
+      background-position: 100% 0;
+      border-bottom-right-radius: 20px;
+      border-right: 2px solid #6B6B6B;
+    }
+
+    #{$parent}__content {
+      border-bottom: 2px solid #6B6B6B;
+      border-radius: 20px;
+    }
+
     #{$parent}__title {
       font-size: 16px;
       padding: 24px 20px;
@@ -359,11 +403,42 @@ const prizes = [
       }
     }
   }
+
+  &--subindex-1 {
+    #{$parent}__image {
+      background-size: 78% auto;
+      background-position: 100% 0;
+    }
+  }
+
+  &--subindex-2 {
+    #{$parent}__image {
+      background-size: 90% auto;
+      background-position: 280% -310%;
+
+      @media (max-width: 1399px) {
+        background-size: auto 80%;
+        background-position: 130% 100%;
+      }
+
+      @media (max-width: 479px) {
+        background-position: 230% 0;
+      }
+    }
+  }
+
+  &--subindex-3 {
+    #{$parent}__image {
+      background-position: 89% 20px;
+    }
+  }
   
   &--size-s {
     #{$parent}__content {
       padding-top: 68px;
       justify-content: flex-end;
+      border-bottom: 2px solid #6B6B6B;
+      border-radius: 20px;
     }
 
     #{$parent}__title {
@@ -376,6 +451,47 @@ const prizes = [
         padding: 14px;
       }
     }
+
+    #{$parent}__image {
+      width: 100%;
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      height: calc(100% - 60px);
+      background-position: 100% 0;
+      border-bottom-right-radius: 20px;
+      border-right: 2px solid #6B6B6B;
+      z-index: -1;
+    }
   }
+
+  &--index-5 {
+    #{$parent}__image {
+      background-size: 60% auto;
+      background-position: 130% 0%;
+    }
+  }
+
+  &--index-6 {
+    #{$parent}__image {
+      background-size: 87% auto;
+      background-position: 330% 0%;
+    }
+  }
+
+  &--index-7 {
+    #{$parent}__image {
+      background-size: 66% auto;
+      background-position: 150% 0%;
+    }
+  }
+
+  &--index-8 {
+    #{$parent}__image {
+      background-size: 57% auto;
+      background-position: 130% 0%;
+    }
+  }
+  
 }
 </style>
