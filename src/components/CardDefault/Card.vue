@@ -516,7 +516,7 @@ $transition: 0.2s ease-in;
 }
 
 // hover
-.card-default {
+.card-default--interactive {
   $parent: &;
 
   &--active,

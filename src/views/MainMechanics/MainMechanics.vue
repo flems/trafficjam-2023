@@ -13,7 +13,7 @@
         <div class="col-12 col-md-4">
           <ui-card interactive full-height class="mechanics__card" @mouseleave="onMouseleave" @mouseenter="onMouseenter('prizes')">
               <h3 class="mechanics__title">Получай призы</h3>
-              <p>Ты <b>гарантированно получаешь кешбэк</b>, достигая чек-поинта. <b>Больше трафика — круче приз</b>, неважно когда ты подключился в игру и кто сегодня в ТОПе!</p>
+              <p>Ты <b>гарантированно получаешь кешбэк</b>, достигая чек-пойнта. <b>Больше трафика — круче кешбэк</b>, неважно когда ты подключился в игру и кто сегодня в ТОПе!</p>
               <prizes-card
                 class="mechanics__card-prizes"
                 :data="[

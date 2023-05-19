@@ -34,7 +34,7 @@ import FooterNav from '@/components/FooterNav'
 
 const footerMenu = [
   {
-    link: 'https://rafinad.io/static/web/trafficjam2022/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%20TrafficJam.pdf',
+    link: 'https://rafinad.io/static/web/trafficjam2023/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%20TrafficJam.pdf',
     name: 'Публичная оферта'
   },
   {
@@ -63,11 +63,11 @@ const socialList = [
     name: 'TenChat',
     icon: '/images/icons/tenchat.svg'
   },
-  {
-    link: 'http://instagram.com/rafinad.io',
-    name: 'Та самая соцсеть',
-    icon: '/images/icons/inst.svg'
-  }
+  // {
+  //   link: 'http://instagram.com/rafinad.io',
+  //   name: 'Та самая соцсеть',
+  //   icon: '/images/icons/inst.svg'
+  // }
 ]
 </script>
 

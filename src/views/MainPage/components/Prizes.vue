@@ -155,7 +155,7 @@ const prizes = [
     tagName: '10',
     tagWidth: '50px',
     theme: 'black',
-    title: 'Sony Playstation&nbsp;5',
+    title: 'PS5',
     image: '/images/main-page/prizes/10.png',
     size: 's'
   }
@@ -270,6 +270,14 @@ const prizes = [
 .prizes-card {
   $parent: &;
   min-height: 200px;
+  pointer-events: all;
+
+  &:hover {
+    #{$parent}__image {
+      // transform: scale(1.01);
+      transform: translate(0px, -3px);
+    }
+  }
 
   &__title {
     font-family: 'Unbounded', sans-serif;
@@ -287,6 +295,8 @@ const prizes = [
     background-position: 50% 50%;
     display: block;
     z-index: -1;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: 100% 100%;
 
     @media (max-width: 1000px) {
       background-size: contain !important;
@@ -376,7 +386,7 @@ const prizes = [
       right: 0;
       height: calc(100% - 60px);
       background-position: 100% 0;
-      border-bottom-right-radius: 20px;
+      // border-bottom-right-radius: 20px;
       border-right: 2px solid #6B6B6B;
     }
 
@@ -459,7 +469,7 @@ const prizes = [
       right: 0;
       height: calc(100% - 60px);
       background-position: 100% 0;
-      border-bottom-right-radius: 20px;
+      // border-bottom-right-radius: 20px;
       border-right: 2px solid #6B6B6B;
       z-index: -1;
     }

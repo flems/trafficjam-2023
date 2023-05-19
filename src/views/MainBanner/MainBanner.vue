@@ -14,8 +14,8 @@
         </div>
       </div>
       <div class="banner__actions">
-        <button class="banner__button">Пристыковаться</button>
-        <a href="#" class="banner__link">
+        <a href="https://rafinad.io/login/" target="_blank" class="banner__button">Пристыковаться</a>
+        <a href="https://rafinad.io/sugar/progress/" target="_blank" class="banner__link">
           <span>Узнать подробнее</span>
         </a>
       </div>
