@@ -45,18 +45,18 @@ import MainRating from '@/views/MainRating/MainRating.vue'
     z-index: 2;
 
     & + & {
-      margin-top: 180px;
+      padding-top: 180px;
 
       @media (max-width: 1279px) {
-        margin-top: 140px;
+        padding-top: 140px;
       }
 
       @media (max-width: 999px) {
-        margin-top: 100px;
+        padding-top: 100px;
       }
 
       @media (max-width: 767px) {
-        margin-top: 80px;
+        padding-top: 80px;
       }
     }
   }

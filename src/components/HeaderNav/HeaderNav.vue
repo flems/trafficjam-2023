@@ -6,7 +6,7 @@
       v-for="(item, index) in data"
       :key="index"
     >
-      <a :href="item.link" class="header-nav__link" @click="onClick">
+      <a :href="item.link" @click.prevent="onClick(item.link)" class="header-nav__link">
         <span v-html="item.name"></span>
       </a>
     </li>
@@ -15,11 +15,16 @@
 </template>
 
 <script setup>
+import { gsap } from 'gsap'
+
 const emits = defineEmits(['close'])
 
-const onClick = () => {
+const onClick = hash => {
+  const block = document.querySelector(hash)
+  block.scrollIntoView({ behavior: 'smooth', block: 'start' });
   emits('close')
 }
+
 const data = [
   {
     name: 'О конкурсе',
