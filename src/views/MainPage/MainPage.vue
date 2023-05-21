@@ -38,7 +38,7 @@ import MainRating from '@/views/MainRating/MainRating.vue'
   background-position: 50% 0px;
   background-repeat: repeat no-repeat;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
 
   &__section {
     position: relative;
