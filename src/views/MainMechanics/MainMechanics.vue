@@ -7,7 +7,37 @@
           <ui-card interactive full-height class="mechanics__card" @mouseleave="onMouseleave" @mouseenter="onMouseenter('sugar')">
               <h3 class="mechanics__title">Зарабатывай Сахарки</h3>
               <p>За каждые заработанные <b>100 рублей</b> начисляется <b>10 сахарков</b>. По спонсорским офферам начисляется 20, 30 и даже 40 сахарков в зависимости от спонсора!</p>
-              <prizes-card class="mechanics__card-prizes" />
+              <prizes-card
+                class="mechanics__card-prizes"
+                :initial="[
+                  {
+                    progress: '0',
+                    name: '1',
+                    icon: 'rocket',
+                    score: '',
+                    theme: 'black'
+                  },
+                  {
+                    progress: '0',
+                    name: '2',
+                    icon: 'box',
+                    score: '',
+                    theme: 'black',
+                    'active-icon': 'box-opened'
+                  },
+                  {
+                    progress: '0',
+                    name: '3',
+                    icon: 'box',
+                    score: '',
+                    last: true,
+                    theme: 'blue',
+                    'active-icon': 'box-opened',
+                    text: false,
+                    'highlighted-text': false
+                  }
+                ]"
+              />
           </ui-card>
         </div>
         <div class="col-12 col-md-4">
@@ -42,6 +72,34 @@
                     text: true,
                     'active-icon': 'box-opened'
                   },
+                ]"
+                :initial="[
+                  {
+                    progress: '0',
+                    name: '1',
+                    icon: 'box',
+                    score: '',
+                    theme: 'black'
+                  },
+                  {
+                    progress: '0',
+                    name: '2',
+                    icon: 'box',
+                    score: '',
+                    theme: 'black',
+                    'active-icon': 'box-opened'
+                  },
+                  {
+                    progress: '0',
+                    name: '3',
+                    icon: 'box',
+                    score: '',
+                    last: true,
+                    theme: 'blue',
+                    'active-icon': 'box-opened',
+                    text: false,
+                    'highlighted-text': false
+                  }
                 ]"
               />
           </ui-card>
@@ -78,6 +136,34 @@
                     text: true,
                     'active-icon': 'box-opened'
                   },
+                ]"
+                :initial="[
+                  {
+                    progress: '0',
+                    name: '1',
+                    icon: 'box',
+                    score: '',
+                    theme: 'black'
+                  },
+                  {
+                    progress: '0',
+                    name: '2',
+                    icon: 'box',
+                    score: '',
+                    theme: 'black',
+                    'active-icon': 'box-opened'
+                  },
+                  {
+                    progress: '0',
+                    name: '3',
+                    icon: 'box',
+                    score: '',
+                    last: true,
+                    theme: 'blue',
+                    'active-icon': 'box-opened',
+                    text: false,
+                    'highlighted-text': false
+                  }
                 ]"
               />
           </ui-card>

@@ -1,7 +1,7 @@
 <template>
-<div class="prizes-first">
+<div class="prizes-first" ref="container">
   <step
-    v-for="(item, index) in data"
+    v-for="(item, index) in stepData"
     :key="index"
     class="prizes-first__step"
     :class="{ 'prizes-first__step--last': item.last }"
@@ -19,8 +19,11 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue'
 import Step from './Step.vue'
-defineProps({
+import verge from 'verge'
+
+const props = defineProps({
   data: {
     type: Array,
     default: () => [
@@ -49,9 +52,63 @@ defineProps({
         'active-icon': 'box-opened',
         text: false,
         'highlighted-text': false
-      },
+      }
     ]
+  },
+  initial: {
+    type: Array,
+    default: () => ([
+      {
+        progress: '0',
+        name: '1',
+        icon: 'rocket',
+        score: '',
+        theme: 'black'
+      },
+      {
+        progress: '0',
+        name: '2',
+        icon: 'box',
+        score: '',
+        theme: 'black',
+        'active-icon': 'box-opened'
+      },
+      {
+        progress: '0',
+        name: '3',
+        icon: 'box',
+        score: '',
+        last: true,
+        theme: 'blue',
+        'active-icon': 'box-opened',
+        text: false,
+        'highlighted-text': false
+      }
+    ])
   }
+})
+
+const container = ref(null)
+const viewportOffset = -250
+const stepData = ref(props.initial)
+
+const isInView = () => {
+  if (!container.value) return
+  
+  if (verge.inY(container.value, viewportOffset)) {
+    return true
+  }
+
+  return false
+}
+
+
+onMounted(() => {
+  window.addEventListener('scroll', () => {
+    if (isInView()) {
+      stepData.value = props.data
+    }
+  })
 })
 </script>
 

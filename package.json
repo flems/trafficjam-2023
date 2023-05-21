@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "gsap": "^3.11.5",
+    "throttle-debounce": "^5.0.0",
+    "verge": "^1.10.2",
     "vue": "^3.2.47"
   },
   "devDependencies": {
