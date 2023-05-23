@@ -33,6 +33,10 @@ import SpaceObjects from './components/SpaceObjects.vue';
   padding-top: 170px;
   position: relative;
 
+  @media (max-height: 750px) {
+    padding-top: 100px;
+  }
+
   @media (max-width: 1279px) {
     padding-top: 100px;
   }

@@ -77,7 +77,7 @@
         name="3"
         icon="box"
         active-icon="box-opened"
-        theme="blue"
+        theme="black"
         :progress="progress.third"
         key="third"
       />
@@ -88,7 +88,7 @@
       <step
         class="prizes__step"
         name="3"
-        theme="blue"
+        theme="black"
         icon="box"
         active-icon="box-opened"
         score="600&nbsp;000"
@@ -99,6 +99,7 @@
         class="prizes__step"
         name="4"
         icon="box"
+        theme="blue"
         active-icon="box-opened"
         score="1&nbsp;200&nbsp;000"
         :progress="progress.fourth"

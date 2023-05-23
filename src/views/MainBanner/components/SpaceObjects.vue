@@ -139,6 +139,10 @@ onMounted(() => {
     width: 34%;
     z-index: 12;
 
+    @media (max-height: 750px) {
+      top: 136px;
+    }
+
     @media (max-width: 1439px) {
       left: 35%;
     }

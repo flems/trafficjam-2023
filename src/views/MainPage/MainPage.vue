@@ -3,14 +3,14 @@
     <section class="main-page__section">
       <banner />
     </section>
-    <section class="main-page__section" id="about">
+    <section class="main-page__section main-page__section--mechanics" id="about">
       <mechanics />
     </section>
     <section class="main-page__section main-page__section--sponsors" id="sponsors">
       <sponsors />
       <div class="main-page__sponsors-bg"></div>
     </section>
-    <section class="main-page__section" id="prizes">
+    <section class="main-page__section main-page__section--prizes" id="prizes">
       <prizes />
     </section>
     <section class="main-page__section">
@@ -58,6 +58,15 @@ import MainRating from '@/views/MainRating/MainRating.vue'
       @media (max-width: 767px) {
         padding-top: 80px;
       }
+    }
+
+    &--prizes,
+    &--mechanics {
+      z-index: 5;
+    }
+
+    &--sponsors {
+      z-index: 4;
     }
   }
 
@@ -114,6 +123,7 @@ import MainRating from '@/views/MainRating/MainRating.vue'
     top: 30%;
     left: 50%;
     transform: translateX(-100%);
+    z-index: 3;
   }
 
   &--prizes {
@@ -125,6 +135,7 @@ import MainRating from '@/views/MainRating/MainRating.vue'
     top: 70%;
     left: 50%;
     transform: translateX(-100%);
+    z-index: 2;
   }
 }
 </style>

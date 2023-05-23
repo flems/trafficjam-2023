@@ -292,6 +292,7 @@ $transition: 0.2s ease-in;
     z-index: 3;
     transition: box-shadow $transition, border-color $transition;
     padding: 20px 32px 42px;
+    padding-top: 28px;
   }
 
   &__utils {
@@ -478,13 +479,14 @@ $transition: 0.2s ease-in;
 
     &:after {
       content: '';
-      width: calc(100% - #{$tagWidth} - #{$tagSpaceX} - #{$borderWidth}*2);
-      height: 20px;
+      width: calc(100% - 178px - 8px - 2px*2 + 12px);
+      height: 31px;
       position: absolute;
-      top: #{$labelHeight};
+      top: 46px;
       left: $borderWidth;
       z-index: 6;
       background: var(--bgCard);
+      border-top-right-radius: 8px;
     }
 
     span {

@@ -32,12 +32,12 @@ import Card from "@/components/Card"
 
 const sponsors = [
   {
-    logo: '/images/logos/placeholder-logo-invert.svg',
-    title: '',
+    logo: '/images/logos/tinkoff.svg',
+    title: 'Тинькофф',
     'tag-icon': 'universe',
     theme: 'blue',
-    detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
-    col: 'col-12 col-md-6',
+    detail: 'Космическая выгода для всех участников TrafficJam 2023! Не просто красивые карты, могут экономить и зарабатывать для вас!',
+    col: 'col-12 col-lg-6',
     'tag-name': 'Вселенная'
   },
   {
@@ -46,8 +46,17 @@ const sponsors = [
     'tag-icon': 'universe',
     theme: 'blue',
     detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
-    col: 'col-12 col-md-6',
+    col: 'col-12 col-lg-6',
     'tag-name': 'Вселенная'
+  },
+  {
+    logo: '/images/logos/placeholder-logo-invert.svg',
+    title: '',
+    'tag-icon': 'planet',
+    theme: 'black',
+    detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
+    col: 'col-12 col-md-6 col-xl-5',
+    'tag-name': 'Планета'
   },
   {
     logo: '/images/logos/gazprom.png',
@@ -55,16 +64,7 @@ const sponsors = [
     'tag-icon': 'planet',
     theme: 'black',
     detail: 'Один из крупнейших универсальных финансовых институтов России, предоставляющий широкий спектр продуктов и услуг корпоративным и частным клиентам, финансовым институтам, институциональным и частным инвесторам.',
-    col: 'col-12 col-md-6',
-    'tag-name': 'Планета'
-  },
-  {
-    logo: '/images/logos/placeholder-logo-invert.svg',
-    title: '',
-    'tag-icon': 'planet',
-    theme: 'black',
-    detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
-    col: 'col-12 col-md-6',
+    col: 'col-12 col-md-6 col-xl-5',
     'tag-name': 'Планета'
   },
   {
@@ -73,7 +73,7 @@ const sponsors = [
     'tag-icon': 'star',
     theme: 'black',
     detail: '30 лет мы не стоим на месте и постоянно улучшаем качество наших продуктов, один из которых — кредитная карта #120наВСЁ Плюс. Желаем участникам конкурса успехов в продвижении и космического апрува.',
-    col: 'col-12 col-md-6',
+    col: 'col-12 col-md-6 col-xl-4',
     'tag-name': 'Звезда'
   },
   {
@@ -82,7 +82,7 @@ const sponsors = [
     'tag-icon': 'star',
     theme: 'black',
     detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
-    col: 'col-12 col-md-6',
+    col: 'col-12 col-md-6 col-xl-4',
     'tag-name': 'Звезда'
   }
 ]
