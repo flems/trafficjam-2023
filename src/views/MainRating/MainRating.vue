@@ -16,7 +16,7 @@
 
 <script setup>
 import RatingTable from './components/RatingTable.vue'
-import { ref, onBeforeMount, computed } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 
 const data = ref([])
 
@@ -30,6 +30,9 @@ const getData = () => {
         'Authorization': 'Token 0042287fbcd916971408c84312cdebc668c00b38',
       },
       method: 'GET'
+    })
+    .then(response => {
+      return response.json()
     })
     .then(res => {
       data.value = res

@@ -34,7 +34,7 @@ import FooterNav from '@/components/FooterNav'
 
 const footerMenu = [
   {
-    link: 'https://rafinad.io/static/web/trafficjam2023/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%20TrafficJam.pdf',
+    link: 'https://rafinad.io/static/web/trafficjam2023/rules.pdf',
     name: 'Публичная оферта'
   },
   {
