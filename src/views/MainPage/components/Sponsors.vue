@@ -32,6 +32,24 @@ import Card from "@/components/Card"
 
 const sponsors = [
   {
+    logo: '/images/logos/placeholder-logo-invert.svg',
+    title: '',
+    'tag-icon': 'universe',
+    theme: 'blue',
+    detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
+    col: 'col-12 col-md-6',
+    'tag-name': 'Вселенная'
+  },
+  {
+    logo: '/images/logos/placeholder-logo-invert.svg',
+    title: '',
+    'tag-icon': 'universe',
+    theme: 'blue',
+    detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
+    col: 'col-12 col-md-6',
+    'tag-name': 'Вселенная'
+  },
+  {
     logo: '/images/logos/gazprom.png',
     title: 'Газпромбанк',
     'tag-icon': 'planet',
@@ -40,15 +58,15 @@ const sponsors = [
     col: 'col-12 col-md-6',
     'tag-name': 'Планета'
   },
-  // {
-  //   logo: '/images/logos/placeholder-logo.png',
-  //   title: '',
-  //   'tag-icon': 'planet',
-  //   theme: 'black',
-  //   detail: '',
-  //   col: 'col-12 col-md-6',
-  //   'tag-name': 'Планета'
-  // },
+  {
+    logo: '/images/logos/placeholder-logo-invert.svg',
+    title: '',
+    'tag-icon': 'planet',
+    theme: 'black',
+    detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
+    col: 'col-12 col-md-6',
+    'tag-name': 'Планета'
+  },
   {
     logo: '/images/logos/rosbank.png',
     title: 'Росбанк',
@@ -58,24 +76,15 @@ const sponsors = [
     col: 'col-12 col-md-6',
     'tag-name': 'Звезда'
   },
-  // {
-  //   logo: '/images/logos/safepal.svg',
-  //   title: 'Название компании',
-  //   'tag-icon': 'planet',
-  //   theme: 'black',
-  //   detail: 'Ты гарантированно <b>получаешь приз</b>, достигнув чек-поинта, <b>больше трафика – круче приз</b>, поэтому неважно когда Ты подключился в игру и кто сегодня в ТОПе! После прохождения всех уровней. Ты попадаешь в ТОП, где среди первых 10 участников будет разыгран призовой фонд в 2,5 млн рублей!',
-  //   col: 'col-12 col-md-6 col-xl-5',
-  //   'tag-name': 'Планета'
-  // },
-  // {
-  //   logo: '/images/logos/safepal.svg',
-  //   title: 'Название компании',
-  //   'tag-icon': 'star',
-  //   theme: 'black',
-  //   detail: 'Ты гарантированно <b>получаешь приз</b>, достигнув чек-поинта, <b>больше трафика – круче приз</b>, поэтому неважно когда Ты подключился в игру и кто сегодня в ТОПе! После прохождения всех уровней. Ты попадаешь в ТОП, где среди первых 10 участников будет разыгран призовой фонд в 2,5 млн рублей!',
-  //   col: 'col-12 col-md-6 col-xl-4',
-  //   'tag-name': 'Звезда'
-  // }
+  {
+    logo: '/images/logos/placeholder-logo-invert.svg',
+    title: '',
+    'tag-icon': 'star',
+    theme: 'black',
+    detail: 'Скоро сюда прибудет гость межгалактического альянса. Ожидаем.',
+    col: 'col-12 col-md-6',
+    'tag-name': 'Звезда'
+  }
 ]
 </script>
 

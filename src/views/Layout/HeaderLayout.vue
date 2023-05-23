@@ -104,6 +104,10 @@ const closeMenu = () => {
     z-index: -1;
     transform: translateY(-100%);
     transition: transform 0.3s ease-out;
+
+    @media (max-width: 1279px) {
+      right: 0;
+    }
     
     .header-nav__link {
       opacity: 0;

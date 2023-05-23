@@ -126,6 +126,11 @@ onUnmounted(() => {
     backdrop-filter: blur(6px);
     display: flex;
     gap: 10px;
+
+    @media (max-width: 479px) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
   }
 
   &__number {

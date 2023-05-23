@@ -37,12 +37,7 @@ const data = [
   {
     name: 'Призы',
     link: '#prizes'
-  },
-  // {
-  //   name: 'Правила',
-  //   link: '#rules'
-  // },
-
+  }
 ]
 </script>
 

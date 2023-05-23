@@ -42,7 +42,7 @@
         </div>
         <div class="col-12 col-md-4">
           <ui-card interactive full-height class="mechanics__card" @mouseleave="onMouseleave" @mouseenter="onMouseenter('prizes')">
-              <h3 class="mechanics__title">Получай призы</h3>
+              <h3 class="mechanics__title">Получай кешбэк</h3>
               <p>Ты <b>гарантированно получаешь кешбэк</b>, достигая чек-пойнта. <b>Больше трафика — круче кешбэк</b>, неважно когда ты подключился в игру и кто сегодня в ТОПе!</p>
               <prizes-card
                 class="mechanics__card-prizes"
@@ -234,9 +234,7 @@ const onMouseleave = () => {
 <style lang="scss">
 .mechanics {
   &__title {
-    @media (max-width: 1550px) {
-      min-height: calc(2em * 1.4);
-    }
+    // min-height: calc(2em * 1.4);
 
     @media (max-width: 767px) {
       min-height: auto;
