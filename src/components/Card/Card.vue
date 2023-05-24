@@ -1,7 +1,7 @@
 <template>
   <div
     class="card"
-    @click="onClick"
+    ref="card"
     :class="{
         [`card--theme-${theme}`]: theme,
         'card--full-height': fullHeight,
@@ -39,8 +39,12 @@
 </template>
 
 <script setup>
+import { throttle } from 'throttle-debounce'
 import { gsap } from 'gsap'
 import UiIcon from '@/components/UiIcon'
+import { ref, onMounted } from 'vue'
+import verge from 'verge'
+
 
 defineProps({
   logo: {
@@ -70,20 +74,73 @@ defineProps({
   }
 })
 
-const onClick = e => {
-  const card = e.currentTarget
+const card = ref(null)
+const tl = gsap.timeline({ paused: true, reversed: true })
+const viewportOffset = -250
+
+const onMouseEnter = () => {
+  tl.play()
+}
+
+const onMouseLeave = () => {
+  setTimeout(() => {
+    tl.reverse()
+  }, 5000);
+}
+
+const onScroll = throttle(500, () => {
+  console.log(123);
+  if (isInView()) {
+    tl.play()
+    window.removeEventListener('scroll', onScroll)
+  }
+})
+
+const setTlSetting = (card) => {
   const logo = card.querySelector('.card__logo')
   const content = card.querySelector('.card__content')
-  const logoAnumDur = 0.5
-  const tl = gsap.timeline()
+  const logoAnumDur = 0.4
+  const left = window.innerWidth < 480 ? 20 : 32
 
-  tl.to(logo, {left: 32, duration: logoAnumDur})
+  tl.to(logo, {left: left, duration: logoAnumDur})
   tl.to(logo, {top: 20, duration: logoAnumDur}, 0)
   tl.to(logo, {xPercent: 0, duration: logoAnumDur}, 0)
   tl.to(logo, {yPercent: 0, duration: logoAnumDur}, 0)
   tl.to(logo, {width: 85, duration: logoAnumDur}, 0)
-  tl.to(content, {opacity: 1, duration: 0.1}, 0.2)
+  tl.to(content, {opacity: 1, duration: 0.1}, 0.3)
 }
+
+const setEvents = (card) => {
+  if (window.innerWidth > 1024) {
+    card.addEventListener('mouseenter', onMouseEnter)
+    card.addEventListener('mouseleave', onMouseLeave)
+    window.removeEventListener('scroll', onScroll)
+  } else {
+    card.removeEventListener('mouseenter', onMouseEnter)
+    card.removeEventListener('mouseleave', onMouseLeave)
+    window.addEventListener('scroll', onScroll)
+  }
+}
+
+const isInView = () => {
+  if (!card.value) return
+  
+  if (verge.inY(card.value, viewportOffset)) {
+    return true
+  }
+
+  return false
+}
+
+onMounted(() => {
+  setTlSetting(card.value)
+  setEvents(card.value)
+
+  window.addEventListener('resize', () => {
+    tl.reverse()
+    setEvents(card.value)
+  })
+})
 </script>
 
 <style lang="scss">
@@ -262,6 +319,11 @@ $transition: 0.2s ease-in;
     padding: 18px 32px 0;
     overflow: hidden;
 
+    @media (max-width: 479px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
     &:before {
       content: '';
       position: absolute;
@@ -293,6 +355,11 @@ $transition: 0.2s ease-in;
     transition: box-shadow $transition, border-color $transition;
     padding: 20px 32px 42px;
     padding-top: 28px;
+
+    @media (max-width: 479px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   &__utils {
