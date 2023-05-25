@@ -77,19 +77,20 @@ defineProps({
 const card = ref(null)
 const tl = gsap.timeline({ paused: true, reversed: true })
 const viewportOffset = -250
+const timerId = ref(null)
 
 const onMouseEnter = () => {
+  clearTimeout(timerId.value);
   tl.play()
 }
 
 const onMouseLeave = () => {
-  setTimeout(() => {
+  timerId.value = setTimeout(() => {
     tl.reverse()
-  }, 5000);
+  }, 7000);
 }
 
 const onScroll = throttle(500, () => {
-  console.log(123);
   if (isInView()) {
     tl.play()
     window.removeEventListener('scroll', onScroll)
@@ -195,10 +196,6 @@ $transition: 0.2s ease-in;
     height: 16px;
     flex-shrink: 0;
     margin-right: 10px;
-
-    // path {
-    //   stroke: currentColor;
-    // }
   }
 
   &__title {
@@ -217,6 +214,9 @@ $transition: 0.2s ease-in;
     line-height: 1.25;
     font-family: 'Graphik LCG', sans-serif;
     color: var(--contenTextColor);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     b {
       color: var(--contentHighlightTextColor);
@@ -353,7 +353,7 @@ $transition: 0.2s ease-in;
     overflow: hidden;
     z-index: 3;
     transition: box-shadow $transition, border-color $transition;
-    padding: 20px 32px 42px;
+    padding: 20px 32px 32px;
     padding-top: 28px;
 
     @media (max-width: 479px) {

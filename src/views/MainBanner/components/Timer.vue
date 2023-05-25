@@ -1,6 +1,9 @@
 <template>
 <div class="timer" v-if="day && hour && tmin">
-  <p class="timer__title">До старта конкурса:</p>
+  <p class="timer__title">
+    <span v-if="!isCompetitionStarted">До старта конкурса:</span>
+    <span v-else>До окончания конкурса:</span>
+  </p>
   <div class="timer__container">
     
     <span class="timer__number">
@@ -28,10 +31,20 @@
 <script setup>
 import { onMounted, ref, computed, onUnmounted } from 'vue'
 
+
 const timer = ref(null)
-const timeend = new Date(2023, 5, 1, 0, 0, 0, 0)
+const timeend1 = new Date(2023, 5, 1, 12, 0, 0, 0)
+const timeend2 = new Date(2023, 9, 31, 23, 59, 59, 0)
 const tmin = ref(null)
 const tsec = ref(null)
+
+const isCompetitionStarted = computed(() => {
+  return getCurrentDate() >= timeend1
+})
+
+const timeend = computed(() => {
+  return isCompetitionStarted.value ? timeend2 : timeend1
+})
 
 const getCurrentDate = () => {
   const currentDate = new Date()
@@ -41,7 +54,7 @@ const getCurrentDate = () => {
 }
 
 const hour = computed(() => {
-  let thour = Math.floor((timeend - getCurrentDate()) / 1000 / 60 / 60) % 24
+  let thour = Math.floor((timeend.value - getCurrentDate()) / 1000 / 60 / 60) % 24
   if (thour < 0) thour = 0
   if (thour < 10) {
     thour = '0' + thour
@@ -50,7 +63,7 @@ const hour = computed(() => {
 })
 
 const day = computed(() => {
-  let today = Math.floor((timeend - getCurrentDate()) / 1000 / 60 / 60 / 24)
+  let today = Math.floor((timeend.value - getCurrentDate()) / 1000 / 60 / 60 / 24)
   if (today < 0) today = 0
   if (today < 10) {
       today = '0' + today
@@ -59,13 +72,13 @@ const day = computed(() => {
 })
 
 const upd = () => {
-  tsec.value = Math.floor((timeend - getCurrentDate()) / 1000) % 60
+  tsec.value = Math.floor((timeend.value - getCurrentDate()) / 1000) % 60
   if (tsec.value < 0) tsec.value = 0
   if (tsec.value < 10) {
       tsec.value = '0' + tsec.value
   }
 
-  tmin.value = Math.floor((timeend - getCurrentDate()) / 1000 / 60) % 60
+  tmin.value = Math.floor((timeend.value - getCurrentDate()) / 1000 / 60) % 60
   if (tmin.value < 0) tmin.value = 0
   if (tmin.value < 10) {
       tmin.value = '0' + tmin.value
