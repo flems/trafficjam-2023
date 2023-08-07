@@ -24,7 +24,7 @@
     </template>
     
   </div>
-  <button class="banner__button">Пристыковаться</button>
+  <a href="https://rafinad.io/competition/" target="_blank" class="banner__button">Пристыковаться</a>
 </div>
 </template>
 

@@ -13,7 +13,7 @@
     <section class="main-page__section main-page__section--prizes" id="prizes">
       <prizes />
     </section>
-    <section class="main-page__section">
+    <section class="main-page__section main-page__section--rating">
       <main-rating />
     </section>
 
@@ -67,6 +67,10 @@ import MainRating from '@/views/MainRating/MainRating.vue'
 
     &--sponsors {
       z-index: 4;
+    }
+
+    &--rating {
+      z-index: 3;
     }
   }
 

@@ -101,7 +101,8 @@ const setTlSetting = (card) => {
   const logo = card.querySelector('.card__logo')
   const content = card.querySelector('.card__content')
   const logoAnumDur = 0.4
-  const left = window.innerWidth < 480 ? 20 : 32
+  let left = 32
+  if (window.innerWidth < 1279) left = 20
 
   tl.to(logo, {left: left, duration: logoAnumDur})
   tl.to(logo, {top: 20, duration: logoAnumDur}, 0)
@@ -356,7 +357,7 @@ $transition: 0.2s ease-in;
     padding: 20px 32px 32px;
     padding-top: 28px;
 
-    @media (max-width: 479px) {
+    @media (max-width: 1279px) {
       padding-left: 20px;
       padding-right: 20px;
     }
