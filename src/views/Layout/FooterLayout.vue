@@ -62,12 +62,7 @@ const socialList = [
     link: 'http://tenchat.ru/rafinadio',
     name: 'TenChat',
     icon: '/images/icons/tenchat.svg'
-  },
-  // {
-  //   link: 'http://instagram.com/rafinad.io',
-  //   name: 'Та самая соцсеть',
-  //   icon: '/images/icons/inst.svg'
-  // }
+  }
 ]
 </script>
 

@@ -274,7 +274,6 @@ const prizes = [
 
   &:hover {
     #{$parent}__image {
-      // transform: scale(1.01);
       transform: translate(0px, -3px);
     }
   }

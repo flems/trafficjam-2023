@@ -24,34 +24,11 @@
 
 <script setup>
 import Timer from './Timer.vue'
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 const austronaut = ref(null)
 const ship = ref(null)
 const container = ref(null)
-const timerLine = ref(null)
-const parallax = (event, items) => {
-  items.forEach((item) => {
-    if (!item) return
-    const position = item.dataset.parallaxValue || 2
-    const x = (window.innerWidth - event.pageX * position) / 300;
-    const y = (window.innerHeight - event.pageY * position) / 300;
-
-    item.style.transform = `translate3d(${x}px, ${y}px, 0px)`
-  });
-}
-
-const init = () => {
-  // const parallaxItems = [austronaut.value, ship.value, timerLine.value]
-
-  // container.value.addEventListener('mousemove', e => {
-  //   parallax(e, parallaxItems)
-  // })
-}
-
-onMounted(() => {
-  init()
-})
 </script>
 
 <style lang="scss" scoped>

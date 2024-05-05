@@ -283,7 +283,6 @@ const closeMenu = () => {
 
   &__menu {
     padding: 16px 40px 0;
-    // background: var(--headerBg);
     position: relative;
 
     @media (max-width: 999px) {

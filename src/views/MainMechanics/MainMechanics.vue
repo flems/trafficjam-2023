@@ -234,8 +234,6 @@ const onMouseleave = () => {
 <style lang="scss">
 .mechanics {
   &__title {
-    // min-height: calc(2em * 1.4);
-
     @media (max-width: 767px) {
       min-height: auto;
     }

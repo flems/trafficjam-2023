@@ -53,7 +53,6 @@
   height: 0;
   padding-top: 71%;
   padding-right: 100%;
-  // background: red;
   backdrop-filter: blur(11px);
   background-size: cover;
   -webkit-clip-path: url(#my-clip-path);

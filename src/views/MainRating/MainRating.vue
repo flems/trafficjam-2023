@@ -1,5 +1,5 @@
 <template>
-  <div class="mp-rating" v-if="data && data.length && globalData?.enableTable">
+  <div class="mp-rating" v-if="data && data.length">
     <div class="container mp-rating__wrapper">
       <h2>ТОП участников</h2>
       <div class="mp-rating__container">
@@ -16,37 +16,11 @@
 
 <script setup>
 import RatingTable from './components/RatingTable.vue'
-import { ref, onBeforeMount } from 'vue'
+import { ref } from 'vue'
+import { exampleData } from './exampleData.js'
 
-const data = ref([])
+const data = ref(exampleData)
 
-
-const globalData = window.__VUE_STATE__
-
-const getData = () => {
-  fetch('https://rafinad.io/api/v1/bonuspoint/top_data/',
-    {
-      headers: {
-        'Authorization': 'Token 0042287fbcd916971408c84312cdebc668c00b38',
-      },
-      method: 'GET'
-    })
-    .then(response => {
-      return response.json()
-    })
-    .then(res => {
-      data.value = res
-    })
-    .catch(error => {
-      console.error(error);
-    })
-}
-
-onBeforeMount(() => {
-  if (globalData?.enableTable) {
-    getData()
-  }
-})
 </script>
 
 <style lang="scss">

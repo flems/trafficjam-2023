@@ -222,6 +222,4 @@ const changreProgress = data => {
     }
   }
 }
-
-
 </style>

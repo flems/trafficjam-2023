@@ -39,9 +39,9 @@
                 <div>
                   Лучший мобильный банк по версии Markswebb
                 </div>
-                <!-- <a href="" class="sponsors__link" target="_blank">
+                <a href="https://rafinad.io/offers/?term=%D0%B0%D0%BB%D1%8C%D1%84%D0%B0%20%D0%B1%D0%B0%D0%BD%D0%BA&page=1&page_size=10&sortField=publish_dt&sortDir=desc" class="sponsors__link" target="_blank">
                   <span>Пристыковаться</span>
-                </a> -->
+                </a>
               </div>
             </template>
           </card>
@@ -60,9 +60,6 @@
                 <div>
                   Скоро сюда прибудет гость межгалактического альянса. Ожидаем.
                 </div>
-                <!-- <a href="" class="sponsors__link" target="_blank">
-                  <span>Пристыковаться</span>
-                </a> -->
               </div>
             </template>
           </card>
