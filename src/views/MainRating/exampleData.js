@@ -13,7 +13,7 @@ export const exampleData = [
         "id": 2,
         "sugar_id": "k10307k10307k10307k10307",
         "lvl": 4,
-        "percentage": 1000,
+        "percentage": 100,
         "prev_position": 3,
         "count": 5089.27
     },
